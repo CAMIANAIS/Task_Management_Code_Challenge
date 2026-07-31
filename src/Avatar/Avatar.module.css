@@ -1,0 +1,12 @@
+.profileInfo__card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.profileInfo__text {
+    font-weight: 400;
+    font-size: var(--bd-text-md);
+    letter-spacing: var(--bd-text-md-letter-spacing);
+}
