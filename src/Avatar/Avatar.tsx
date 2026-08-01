@@ -1,4 +1,4 @@
-import avatar from '../assets/avatar.png'
+import avatar from '/avatar.png'
 import styles from './Avatar.module.css'
 
 const samplePhoto = avatar
