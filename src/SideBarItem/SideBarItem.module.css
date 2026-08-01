@@ -1,0 +1,7 @@
+.nav__item a,
+.nav__item a:hover,
+.nav__item a:visited,
+.nav__item a:active {
+    text-decoration: none;
+    color: var(--color-muted);
+}
