@@ -1,7 +1,7 @@
 import type { TaskTag } from "../Tag/Tag";
 import { User } from "../User/User";
 export type Task = {
-    idTask: string,
+    id: string,
     status: TaskStatus,
     name: string,
     tags: TaskTag[],
@@ -47,7 +47,7 @@ export const mockUsers: User[] = [
 ];
 export const mockTasks: Task[] = [
     {
-        idTask: '1',
+        id: '1',
         status: 'IN_PROGRESS',
         name: 'Design dashboard mockups',
         tags: ['REACT', 'NODE_JS'],
@@ -58,7 +58,7 @@ export const mockTasks: Task[] = [
         position: 1,
     },
     {
-        idTask: '2',
+        id: '2',
         status: 'TODO',
         name: 'Set up authentication flow',
         tags: ['NODE_JS', 'RAILS'],
@@ -69,7 +69,7 @@ export const mockTasks: Task[] = [
         position: 2,
     },
     {
-        idTask: '3',
+        id: '3',
         status: 'BACKLOG',
         name: 'Integrate payment gateway',
         tags: ['REACT', 'NODE_JS'],
@@ -80,7 +80,7 @@ export const mockTasks: Task[] = [
         position: 3,
     },
     {
-        idTask: '4',
+        id: '4',
         status: 'DONE',
         name: 'Write API documentation',
         tags: ['ANDROID', 'IOS'],

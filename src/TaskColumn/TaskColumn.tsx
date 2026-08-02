@@ -9,7 +9,7 @@ export function TaskColumn({ state, tasks }: TaskColumnProps) {
     return <div>
         <span>{state}</span>
         <div>{tasks.map((task) => (
-            <Card key={task.idTask} task={task} />
+            <Card key={task.id} task={task} />
         ))}</div>
     </div>
 }
