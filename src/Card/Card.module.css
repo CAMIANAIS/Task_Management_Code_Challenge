@@ -1,0 +1,6 @@
+.tags__container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--bd-tags-width-spacing);
+    flex-wrap: wrap;
+}

@@ -1,10 +1,12 @@
-.task__container {
-    display: inline-flex;
-}
-
 .task__item {
+    display: flex;
+    flex-direction: row;
+    gap: var(--bd-tags-width-spacing);
+    align-items: center;
+    flex-wrap: wrap;
     border-style: solid;
     border-width: 1px;
     border-radius: 4px;
-    height: 32px
+    height: 32px;
+    white-space: nowrap;
 }

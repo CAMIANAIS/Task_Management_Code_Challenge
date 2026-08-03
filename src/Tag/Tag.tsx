@@ -13,7 +13,5 @@ const tagColors: Record<TaskTag, string> = {
 }
 
 export function Tag({ tag }: TagProps) {
-    return <div className={style.task__container} >
-        <p className={style.task__item} style={{ color: tagColors[tag], borderColor: tagColors[tag] }}>{tag}</p>
-    </div>
+    return <p className={style.task__item} style={{ color: tagColors[tag], borderColor: tagColors[tag] }}>{tag}</p>
 }
