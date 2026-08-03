@@ -6,11 +6,11 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  { icon: '/sideBarIcons/dashboard.svg', label: 'Dashboard', path: '/' },
-  { icon: '/sideBarIcons/task.svg', label: 'My Task', path: '/tasks' },
-  { icon: '/sideBarIcons/projects.svg', label: 'Projects', path: '/projects' },
-  { icon: '/sideBarIcons/calendar.svg', label: 'Calendar', path: '/calendar' },
-  { icon: '/sideBarIcons/time.svg', label: 'Time Manage', path: '/time-management' },
-  { icon: '/sideBarIcons/reports.svg', label: 'Reports', path: '/reports' },
-  { icon: '/sideBarIcons/settings.svg', label: 'Settings', path: '/settings' },
+  { icon: '/sideBarIcons/dashboard.svg', label: 'DASHBOARD', path: '/' },
+  { icon: '/sideBarIcons/task.svg', label: 'MY TASK', path: '/tasks' },
+  { icon: '/sideBarIcons/projects.svg', label: 'PROJECTS', path: '/projects' },
+  { icon: '/sideBarIcons/calendar.svg', label: 'CALENDAR', path: '/calendar' },
+  { icon: '/sideBarIcons/time.svg', label: 'TIME MANAGE', path: '/time-management' },
+  { icon: '/sideBarIcons/reports.svg', label: 'REPORTS', path: '/reports' },
+  { icon: '/sideBarIcons/settings.svg', label: 'SETTINGS', path: '/settings' },
 ];

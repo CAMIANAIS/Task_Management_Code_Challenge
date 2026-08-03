@@ -2,6 +2,14 @@
 .nav__item a:hover,
 .nav__item a:visited,
 .nav__item a:active {
-    text-decoration: none;
     color: var(--color-muted);
+    text-decoration: none;
+    background-color: var(--color-neutral-3);
+}
+
+
+@media (max-width: 640px) {
+    .nav__item {
+        display: none;
+    }
 }

@@ -1,0 +1,19 @@
+.container {
+    grid-row: 1 / -1;
+    overflow-y: auto;
+    background-color: var(--color-neutral-3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--bd-columns-width-spacing);
+}
+
+.options__sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--bd-columns-width-spacing);
+    list-style: none;
+    padding: var(--bd-columns-width-spacing);
+    background-color: var(--color-neutral-3);
+}
