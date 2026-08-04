@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import type { Task } from "../Task/Task";
 import { fetchData } from "../FetchData/fetchData";
 
@@ -28,4 +28,34 @@ export function useQueryTasks() {
         return data.tasks
     }
     return useQuery<Task[]>({ queryKey, queryFn })
+}
+
+const TASKS_QUERY_UPDATE = `mutation updateTask($input: UpdateTaskInput!){  
+                        updateTask(input: $input){ 
+                            id
+                            status
+                            name
+                            tags
+                            pointEstimate
+                            assignee { 
+                                id
+                                fullName
+                                avatar
+                            }
+                            dueDate
+                            createdAt
+                            position 
+                            } 
+                    }
+                `;
+
+
+
+export function useUpdateTask() {
+    return useMutation({
+        mutationFn: async (variables: { input: { id: string; status: string; name: string } }) => {
+            const data = await fetchData(TASKS_QUERY_UPDATE, variables)
+            return data.updateTask
+        }
+    })
 }
