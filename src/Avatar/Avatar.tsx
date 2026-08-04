@@ -18,7 +18,7 @@ export function Avatar({ fullName, size, avatar, showName }: typeAvatar) {
     const bordeRadius = { borderRadius: "50%" }
     const combined = { ...dimension, ...bordeRadius }
     return <div className={styles.profileInfo__card}>
-        <img src={avatar ? avatar : samplePhoto} alt={fullName} style={{ ...combined }} ></img>
+        <img src={avatar ? avatar : samplePhoto} alt={fullName} style={{ ...combined }}></img>
         {showName ? <p className={styles.profileInfo__text}> {fullName}</p > : ''}
     </div >
 }

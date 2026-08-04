@@ -13,5 +13,7 @@ type UserType = 'ADMIN' | 'CANDIDATE'
 
 
 export function User({ id, avatar, createdAt, email, fullName, type, updatedAt }: User) {
-    return <p>hola</p>
+    return <div>
+        <p>{id}</p>
+    </div>
 }
