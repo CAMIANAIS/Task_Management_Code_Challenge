@@ -1,0 +1,26 @@
+.ModalOptions__Container {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-neutral-3);
+    border-radius: var(--bd-card-border-radius);
+    padding: var(--bd-regular-padding);
+    border-color: var(--color-neutral-1);
+    border-style: solid;
+    border-width: var(--bd-card-border-width);
+    position: absolute;
+    z-index: 100;
+    right: var(--bd-columns-width-spacing);
+}
+
+.ModalOptions__Edit,
+.ModalOptions__Delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    display: flex;
+    align-items: center;
+    margin: var(--bd-card-margin);
+    color: var(--color-neutral-1);
+    gap: var(--bd-regular-gap);
+}

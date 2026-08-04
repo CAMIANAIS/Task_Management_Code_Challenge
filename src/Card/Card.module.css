@@ -1,6 +1,58 @@
 .tags__container {
     display: flex;
     flex-direction: row;
-    gap: var(--bd-tags-width-spacing);
+    gap: var(--bd-regular-width-spacing);
     flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--color-neutral-4);
+    padding: var(--bd-regular-padding);
+    border-radius: var(--bd-card-border-radius);
+    margin-top: var(--bd-regular-gap);
+    position: relative;
+}
+
+.topNavigation {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--bd-text-md);
+    gap: var(--bd-regular-gap);
+}
+
+.card__title {
+    font-size: var(--bd-text-lg);
+    letter-spacing: var(--bd-text-lg-letter-spacing);
+    font-weight: var(--bd-text-weight-regular);
+    margin-bottom: 8px;
+}
+
+.card__description {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--bd-text-md);
+    gap: var(--bd-regular-gap)
+}
+
+.dueDate__details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-neutral-3);
+    border-radius: var(--bd-card-border-radius);
+    padding: var(--bd-small-padding);
+}
+
+.card__pointEstimate {
+    margin: 0;
+}
+
+.moreImageIcon {
+    width: 18;
+}
+
+.moreButton {
+    background-color: var(--color-neutral-4);
+    border: none
 }
