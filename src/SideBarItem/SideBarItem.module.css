@@ -4,7 +4,7 @@
 .nav__item a:active {
     color: var(--color-muted);
     text-decoration: none;
-    background-color: var(--color-neutral-3);
+    background-color: var(--color-neutral-4);
 }
 
 

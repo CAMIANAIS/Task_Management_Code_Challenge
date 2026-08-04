@@ -1,5 +1,5 @@
 .top_navigation__bar {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+    gap: var(--bd-regular-gap);
 }
