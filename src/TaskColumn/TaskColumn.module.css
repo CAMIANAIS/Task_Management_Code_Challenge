@@ -1,0 +1,12 @@
+.taskColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.taskColumn__status {
+    font-size: var(--bd-text-lg);
+    line-height: var(--bd-text-md-line-height);
+    letter-spacing: var(--bd-text-lg-letter-spacing);
+    font-weight: var(--bd-text-weight-regular);
+    margin-bottom: 8px;
+}
