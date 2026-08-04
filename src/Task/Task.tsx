@@ -1,11 +1,12 @@
 import type { TaskTag } from "../Tag/Tag";
 import { User } from "../User/User";
+import type { PointEstimate } from "../Card/Card"
 export type Task = {
     id: string,
     status: TaskStatus,
     name: string,
     tags: TaskTag[],
-    pointEstimate: string,
+    pointEstimate: PointEstimate,
     assignee: User | null,
     dueDate: string | null
     createdAt: string | null
@@ -51,7 +52,7 @@ export const mockTasks: Task[] = [
         status: 'IN_PROGRESS',
         name: 'Design dashboard mockups',
         tags: ['REACT', 'NODE_JS'],
-        pointEstimate: '8',
+        pointEstimate: 'EIGHT',
         assignee: mockUsers[0], // Sarah Chen
         dueDate: '2026-08-15',
         createdAt: '2026-07-20',
@@ -62,7 +63,7 @@ export const mockTasks: Task[] = [
         status: 'TODO',
         name: 'Set up authentication flow',
         tags: ['NODE_JS', 'RAILS'],
-        pointEstimate: '5',
+        pointEstimate: 'ZERO',
         assignee: mockUsers[1], // Marcus Johnson
         dueDate: '2026-08-20',
         createdAt: '2026-07-18',
@@ -73,7 +74,7 @@ export const mockTasks: Task[] = [
         status: 'BACKLOG',
         name: 'Integrate payment gateway',
         tags: ['REACT', 'NODE_JS'],
-        pointEstimate: '13',
+        pointEstimate: 'ONE',
         assignee: null,
         dueDate: '2026-08-10',
         createdAt: '2026-07-15',
@@ -84,7 +85,7 @@ export const mockTasks: Task[] = [
         status: 'DONE',
         name: 'Write API documentation',
         tags: ['ANDROID', 'IOS'],
-        pointEstimate: '3',
+        pointEstimate: 'TWO',
         assignee: mockUsers[2], // Priya Patel
         dueDate: '2026-08-05',
         createdAt: '2026-07-10',
