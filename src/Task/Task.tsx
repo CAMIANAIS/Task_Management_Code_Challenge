@@ -1,5 +1,5 @@
 import type { TaskTag } from "../Tag/Tag";
-import { User } from "../User/User";
+import type { User } from "../User/User";
 import type { PointEstimate } from "../Card/Card"
 export type Task = {
     id: string,

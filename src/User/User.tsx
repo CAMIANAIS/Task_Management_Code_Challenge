@@ -12,7 +12,7 @@ type UserType = 'ADMIN' | 'CANDIDATE'
 
 
 
-export function User({ id, avatar, createdAt, email, fullName, type, updatedAt }: User) {
+function User({ id, avatar, createdAt, email, fullName, type, updatedAt }: User) {
     return <div>
         <p>{id}</p>
     </div>
