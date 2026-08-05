@@ -6,9 +6,12 @@ import { useState } from 'react';
 import type { TaskTag } from '../Tag/Tag';
 import 'react-day-picker/style.css';
 import { DayPicker } from 'react-day-picker';
+import { useQueryUsers } from '../CustomHooks/useUsers';
+import type { User } from '../User/User';
+import { Avatar } from '../Avatar/Avatar';
 interface ModalInfoOptionsProps {
     onEstimate: (estimate: PointEstimate) => void;
-    onAssignee: () => void;
+    onAssignee: (fullName: string) => void;
     onTag: (tags: TaskTag[]) => void;
     onDueDate: (dateString: string) => void;
     onClose?: () => void;
@@ -19,6 +22,7 @@ type ModalStatus = 'Estimate' | 'Assignee' | 'Tag' | 'DueDate' | null
 export function ModalInfoOptions({ onEstimate, onAssignee, onTag, onDueDate, onClose, task }: ModalInfoOptionsProps) {
     const ALL_TAGS: TaskTag[] = ['ANDROID', 'IOS', 'NODE_JS', 'RAILS', 'REACT']
     const [isModalOpen, setIsModalOpen] = useState<ModalStatus>(null)
+    const { data: users, isLoading, error } = useQueryUsers()
     const handleUpdateEstimateModal = () => {
         setIsModalOpen(isModalOpen === 'Estimate' ? null : 'Estimate')
     }
@@ -112,6 +116,35 @@ export function ModalInfoOptions({ onEstimate, onAssignee, onTag, onDueDate, onC
                         if (date) { onDueDate(date.toISOString()); setIsModalOpen(null) }
                     }}
                 />
+            </div>
+        }
+        {(isModalOpen === 'Assignee') &&
+            <div>
+                {isLoading ? (
+                    <p>Loading</p>
+                ) : error ? (
+                    <p>Error loading this source</p>
+                ) : !users || users.length === 0 ? (
+                    <p>No assignees available</p>
+                ) : (
+                    users.map((user: User) => (
+                        <button
+                            key={user.id}
+                            onClick={() => {
+                                onAssignee(user.id)
+                                setIsModalOpen(null)
+                            }}
+                            style={{ border: 'none', background: 'none', cursor: 'pointer' }}
+                        >
+                            <Avatar
+                                fullName={user.fullName}
+                                size="sm"
+                                avatar={user.avatar ?? ''}
+                                showName={true}
+                            />
+                        </button>
+                    ))
+                )}
             </div>
         }
     </div>
