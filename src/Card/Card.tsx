@@ -39,6 +39,9 @@ export function Card({ task }: CardProps) {
     const handleUpdateDueDate = (dateString: string) => {
         updateTask.mutate({ input: { id: task.id, dueDate: dateString } })
     }
+    const handleUpdateAssignee = (userId: string) => {
+        updateTask.mutate({ input: { id: task.id, assigneeId: userId } })
+    }
     return <div className={style.card} >
         <div className={style.topNavigation}>
             <p className={style.card__title}>{task.name}</p>
@@ -62,7 +65,7 @@ export function Card({ task }: CardProps) {
         {isFormOpen && (
             <ModalInfoOptions
                 onEstimate={handleUpdateEstimate}
-                onAssignee={handleEdit}
+                onAssignee={handleUpdateAssignee}
                 onTag={handleUpdateTag}
                 onDueDate={handleUpdateDueDate}
                 onClose={() => setIsFormOpen(false)}
