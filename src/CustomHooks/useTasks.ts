@@ -53,7 +53,7 @@ const TASKS_QUERY_UPDATE = `mutation updateTask($input: UpdateTaskInput!){
 
 export function useUpdateTask() {
     return useMutation({
-        mutationFn: async (variables: { input: Partial<Omit<Task, 'id'>> & { id: string } }) => {
+        mutationFn: async (variables: { input: Partial<Omit<Task, 'id'>> & { id: string } & { assigneeId?: string } }) => {
             const data = await fetchData(TASKS_QUERY_UPDATE, variables)
             return data.updateTask
         }
