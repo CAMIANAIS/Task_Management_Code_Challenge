@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { Task } from "../Task/Task";
 import { fetchData } from "../FetchData/fetchData";
 
@@ -49,13 +49,32 @@ const TASKS_QUERY_UPDATE = `mutation updateTask($input: UpdateTaskInput!){
                     }
                 `;
 
-
-
 export function useUpdateTask() {
+    const storedQueryClient = useQueryClient()
     return useMutation({
         mutationFn: async (variables: { input: Partial<Omit<Task, 'id'>> & { id: string } & { assigneeId?: string } }) => {
             const data = await fetchData(TASKS_QUERY_UPDATE, variables)
             return data.updateTask
+        },
+        onSuccess: () => {
+            storedQueryClient.invalidateQueries({ queryKey: ['tasks'] })
+        }
+    })
+}
+const TASKS_QUERY_DELETE = `mutation deleteTask($input: DeleteTaskInput!){
+                        deleteTask(input: $input) 
+                            
+                    }
+                `;
+export function useDeleteTask() {
+    const storedQueryClient = useQueryClient()
+    return useMutation({
+        mutationFn: async (variables: { input: { id: string } }) => {
+            const data = await fetchData(TASKS_QUERY_DELETE, variables)
+            return data.deleteTask
+        },
+        onSuccess: () => {
+            storedQueryClient.invalidateQueries({ queryKey: ['tasks'] })
         }
     })
 }
