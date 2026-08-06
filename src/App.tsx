@@ -5,6 +5,7 @@ import { Dashboard } from './Dashboard/Dashboard'
 import { Placeholder } from './Placeholder/Placeholder'
 import { NotFound } from './NotFound/NotFound'
 import { Layout } from './Layout/Layout'
+import { Settings } from './Settings/Settings'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -18,7 +19,7 @@ function App() {
           <Route path="/calendar" element={<Placeholder title="Calendar" />} />
           <Route path="/time-management" element={<Placeholder title="Time Management" />} />
           <Route path="/projects" element={<Placeholder title="Projects" />} />
-          <Route path="/settings" element={<Placeholder title="Settings" />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/reports" element={<Placeholder title="Reports" />} />
           <Route path="*" element={<NotFound />} />
         </Route>
