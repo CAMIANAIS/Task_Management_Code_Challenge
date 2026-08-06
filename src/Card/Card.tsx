@@ -1,12 +1,14 @@
-import type { Task } from '../Task/Task'
+import type { Task, TaskStatus } from '../Task/Task'
 import { Tag, type TaskTag } from '../Tag/Tag'
 import { Avatar } from '../Avatar/Avatar'
 import style from './Card.module.css'
 import { getFormattedDate } from '../Utils/getFormattedDate'
-import { ModalOptions } from '../ModalEditDelete/ModalEditDelete'
+import { ModalEditOptions } from '../ModalEditDelete/ModalEditDelete'
 import { useState } from 'react'
-import { useUpdateTask } from '../CustomHooks/useTasks'
-import { ModalInfoOptions } from '../ModalEditDeleteInfo/ModalEditDeleteInfo'
+import { useUpdateTask, useDeleteTask } from '../CustomHooks/useTasks'
+import { ModalEditInfoOptions } from '../ModalEditInfo/ModalEditInfo'
+import { ModalConfirmationOptions } from '../ModalConfirmation/ModalConfirmation'
+import { useToast } from '../NotificationContext/NotificationContext'
 type CardProps = {
     task: Task,
 }
@@ -23,24 +25,54 @@ export const pointEstimate: Record<PointEstimate, string> = {
 export function Card({ task }: CardProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isFormOpen, setIsFormOpen] = useState(false)
+    const [isConfirmationOpen, setIsConfrmationOpen] = useState(false)
     const updateTask = useUpdateTask()
+    const confirmDeleteTask = useDeleteTask()
+    const { showToast } = useToast()
     const handleEdit = () => {
         setIsFormOpen(true)
     }
     const handleDelete = () => {
-        console.log("funciona")
+        setIsConfrmationOpen(true)
     }
     const handleUpdateEstimate = (estimate: PointEstimate) => {
-        updateTask.mutate({ input: { id: task.id, pointEstimate: estimate } })
+        handleUpdate({ pointEstimate: estimate })
     }
     const handleUpdateTag = (tags: TaskTag[]) => {
-        updateTask.mutate({ input: { id: task.id, tags: tags } })
+        handleUpdate({ tags: tags })
     }
     const handleUpdateDueDate = (dateString: string) => {
-        updateTask.mutate({ input: { id: task.id, dueDate: dateString } })
+        handleUpdate({ dueDate: dateString })
     }
     const handleUpdateAssignee = (userId: string) => {
-        updateTask.mutate({ input: { id: task.id, assigneeId: userId } })
+        handleUpdate({ assigneeId: userId })
+    }
+    const handleUpdateName = (name: string) => {
+        handleUpdate({ name: name })
+    }
+    const handleUpdateStatus = (status: TaskStatus) => {
+        handleUpdate({ status: status })
+    }
+
+    const handleUpdate = (partialInput: Partial<Omit<Task, 'id'>> & { assigneeId?: string }) => {
+        updateTask.mutate(
+            { input: { id: task.id, ...partialInput } },
+            {
+                onSuccess: () => showToast('Operation Successful', 'success'),
+                onError: () => showToast('Operation Failed', 'error'),
+            }
+        )
+    }
+    const handleConfirm = () => {
+        confirmDeleteTask.mutate(
+            { input: { id: task.id } },
+            {
+                onSuccess: () => showToast('Operation Successful', 'success'),
+                onError: () => showToast('Operation Failed', 'error'),
+            }
+        )
+    }
+    const handleCancel = () => {
     }
     return <div className={style.card} >
         <div className={style.topNavigation}>
@@ -56,22 +88,32 @@ export function Card({ task }: CardProps) {
             </button>
         </div>
         {isMenuOpen && (
-            <ModalOptions
+            <ModalEditOptions
                 onEdit={handleEdit}
                 onDelete={handleDelete}
                 onClose={() => setIsMenuOpen(false)}
             />
         )}
         {isFormOpen && (
-            <ModalInfoOptions
+            <ModalEditInfoOptions
                 onEstimate={handleUpdateEstimate}
                 onAssignee={handleUpdateAssignee}
                 onTag={handleUpdateTag}
                 onDueDate={handleUpdateDueDate}
+                onName={handleUpdateName}
+                onStatus={handleUpdateStatus}
                 onClose={() => setIsFormOpen(false)}
                 task={task}
             />
         )}
+        {isConfirmationOpen && (
+            <ModalConfirmationOptions
+                onConfirm={handleConfirm}
+                onCancel={handleCancel}
+                onClose={() => setIsConfrmationOpen(false)}
+            />
+        )}
+
 
         <div className={style.card__description}>
             <p className={style.card__pointEstimate}>{pointEstimate[task.pointEstimate]}</p>

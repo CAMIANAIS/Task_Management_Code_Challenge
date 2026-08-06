@@ -6,7 +6,7 @@ interface ModalOptionsProps {
     onClose?: () => void
 }
 
-export function ModalOptions({ onEdit, onDelete, onClose }: ModalOptionsProps) {
+export function ModalEditOptions({ onEdit, onDelete, onClose }: ModalOptionsProps) {
     const handleEdit = () => {
         onEdit();
         onClose?.();

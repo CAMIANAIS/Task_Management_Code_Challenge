@@ -1,0 +1,38 @@
+.toast {
+    padding: var(--bd-regular-padding);
+    border-radius: var(--bd-card-border-radius);
+    display: flex;
+    align-items: center;
+    gap: var(--bd-small-gap);
+    position: fixed;
+    bottom: var(--bd-regular-padding);
+    right: var(--bd-regular-width-spacing);
+    font-size: var(--bd-text-md);
+    animation: slideIn 0.3s ease-out;
+}
+
+.toast-success {
+    background-color: var(--color-secondary-4);
+    color: var(--color-neutral-1);
+}
+
+.toast-error {
+    background-color: var(--color-primary-4);
+    color: var(--color-neutral-1);
+}
+
+.icon {
+    font-weight: var(--bd-text-weight-regular);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
