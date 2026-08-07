@@ -18,7 +18,7 @@ export function useQueryUsers() {
         return data.users
     }
 
-    return useQuery<User[]>({ queryKey, queryFn, staleTime: 30000 })
+    return useQuery<User[]>({ queryKey, queryFn, staleTime: 300000 })
 }
 const PROFILE_QUERY = `query getProfile{  
                         profile{
@@ -39,5 +39,5 @@ export function useQueryProfile() {
         const data = await fetchData(PROFILE_QUERY)
         return data.profile
     }
-    return useQuery<User>({ queryKey, queryFn })
+    return useQuery<User>({ queryKey, queryFn, staleTime: 300000 })
 }

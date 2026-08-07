@@ -10,3 +10,14 @@
     font-size: var(--bd-text-md);
     letter-spacing: var(--bd-text-md-letter-spacing);
 }
+
+.initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--color-neutral-2);
+    color: var(--color-neutral-1);
+    font-weight: var(--bd-text-weight-regular);
+    font-size: var(--bd-text-lg);
+}
