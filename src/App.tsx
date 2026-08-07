@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import { Dashboard } from './Dashboard/Dashboard'
@@ -7,7 +6,6 @@ import { NotFound } from './NotFound/NotFound'
 import { Layout } from './Layout/Layout'
 import { Settings } from './Settings/Settings'
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>
