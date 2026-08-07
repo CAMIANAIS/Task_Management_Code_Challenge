@@ -29,9 +29,7 @@ export function Card({ task }: CardProps) {
     const [isConfirmationOpen, setIsConfrmationOpen] = useState(false)
     const updateTask = useUpdateTask()
     const confirmDeleteTask = useDeleteTask()
-    const { text, background } = getColoredDueDate({ dateString: task.dueDate })
     const dueDateColor = getColoredDueDate({ dateString: task.dueDate })
-    const dueDateBackground = getColoredDueDate({ dateString: task.dueDate })
     const { showToast } = useToast()
     const handleEdit = () => {
         setIsFormOpen(true)
