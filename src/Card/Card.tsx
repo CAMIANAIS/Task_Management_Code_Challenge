@@ -6,7 +6,7 @@ import { getFormattedDate } from '../Utils/getFormattedDate'
 import { ModalEditOptions } from '../ModalEditDelete/ModalEditDelete'
 import { useState } from 'react'
 import { useUpdateTask, useDeleteTask } from '../CustomHooks/useTasks'
-import { ModalEditInfoOptions } from '../ModalEditInfo/ModalEditInfo'
+import { ModalEditTaskOptions } from '../ModalEditTask/ModalEditTask'
 import { ModalConfirmationOptions } from '../ModalConfirmation/ModalConfirmation'
 import { useToast } from '../NotificationContext/NotificationContext'
 type CardProps = {
@@ -63,6 +63,7 @@ export function Card({ task }: CardProps) {
             }
         )
     }
+
     const handleConfirm = () => {
         confirmDeleteTask.mutate(
             { input: { id: task.id } },
@@ -95,7 +96,7 @@ export function Card({ task }: CardProps) {
             />
         )}
         {isFormOpen && (
-            <ModalEditInfoOptions
+            <ModalEditTaskOptions
                 onEstimate={handleUpdateEstimate}
                 onAssignee={handleUpdateAssignee}
                 onTag={handleUpdateTag}

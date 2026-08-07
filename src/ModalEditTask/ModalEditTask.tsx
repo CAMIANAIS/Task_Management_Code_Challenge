@@ -1,4 +1,4 @@
-import style from './ModalEditInfo.module.css';
+import style from './ModalEditTask.module.css';
 import type { Task, TaskStatus } from '../Task/Task';
 import { pointEstimate, type PointEstimate } from '../Card/Card';
 import { getFormattedDate } from '../Utils/getFormattedDate';
@@ -22,7 +22,7 @@ interface ModalInfoOptionsProps {
 }
 
 type ModalStatus = 'Estimate' | 'Assignee' | 'Tag' | 'DueDate' | 'Status' | null
-export function ModalEditInfoOptions({ onEstimate, onAssignee, onTag, onDueDate, onName, onStatus, onClose, task }: ModalInfoOptionsProps) {
+export function ModalEditTaskOptions({ onEstimate, onAssignee, onTag, onDueDate, onName, onStatus, onClose, task }: ModalInfoOptionsProps) {
     const ALL_TAGS: TaskTag[] = ['ANDROID', 'IOS', 'NODE_JS', 'RAILS', 'REACT']
     const [isModalOpen, setIsModalOpen] = useState<ModalStatus>(null)
     const { data: users, isLoading, error } = useQueryUsers()
@@ -186,57 +186,58 @@ export function ModalEditInfoOptions({ onEstimate, onAssignee, onTag, onDueDate,
                             </>
                         }
                     </div>
-                </div>
+                    <div className={style.DropdownWrapper}>
+                        <button
+                            className={style.ModalOptions__Edit}
+                            onClick={handleUpdateAssigneeModal}
+                            aria-label='Edit assignee'
+                        >
+                            <img src='./modalIcons/assignee.svg' alt='assignee' aria-hidden='true' />
+                            <span>{task.assignee ? <Avatar avatar={task.assignee.avatar} fullName={task.assignee.fullName} size='sm' showName={true} /> : <span>No assignee</span>}</span>
+                        </button>
 
 
+                        {(isModalOpen === 'Assignee') &&
+                            <>
+                                <div className={style.DropdownBackdrop} onClick={() => setIsModalOpen(null)} />
+                                <div className={style.DropdownMenu}>
 
-                <div className={style.DropdownWrapper}>
-                    <button
-                        className={style.ModalOptions__Edit}
-                        onClick={handleUpdateAssigneeModal}
-                        aria-label='Edit assignee'
-                    >
-                        <img src='./modalIcons/assignee.svg' alt='assignee' aria-hidden='true' />
-                        <span>{task.assignee ? <Avatar avatar={task.assignee.avatar} fullName={task.assignee.fullName} size='sm' showName={true} /> : <span>No assignee</span>}</span>
-                    </button>
-
-
-                    {(isModalOpen === 'Assignee') &&
-                        <>
-                            <div className={style.DropdownBackdrop} onClick={() => setIsModalOpen(null)} />
-                            <div className={style.DropdownMenu}>
-
-                                <div>
-                                    {isLoading ? (
-                                        <p>Loading</p>
-                                    ) : error ? (
-                                        <p>Error loading this source</p>
-                                    ) : !users || users.length === 0 ? (
-                                        <p>No assignees available</p>
-                                    ) : (
-                                        users.map((user: User) => (
-                                            <button
-                                                key={user.id}
-                                                onClick={() => {
-                                                    onAssignee(user.id)
-                                                    setIsModalOpen(null)
-                                                }}
-                                                className={style.DropdownItem}
-                                            >
-                                                <Avatar
-                                                    fullName={user.fullName}
-                                                    size="sm"
-                                                    avatar={user.avatar ?? ''}
-                                                    showName={true}
-                                                />
-                                            </button>
-                                        ))
-                                    )}
+                                    <div>
+                                        {isLoading ? (
+                                            <p>Loading</p>
+                                        ) : error ? (
+                                            <p>Error loading this source</p>
+                                        ) : !users || users.length === 0 ? (
+                                            <p>No assignees available</p>
+                                        ) : (
+                                            users.map((user: User) => (
+                                                <button
+                                                    key={user.id}
+                                                    onClick={() => {
+                                                        onAssignee(user.id)
+                                                        setIsModalOpen(null)
+                                                    }}
+                                                    className={style.DropdownItem}
+                                                >
+                                                    <Avatar
+                                                        fullName={user.fullName}
+                                                        size="sm"
+                                                        avatar={user.avatar ?? ''}
+                                                        showName={true}
+                                                    />
+                                                </button>
+                                            ))
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        </>
-                    }
+                            </>
+                        }
+                    </div>
                 </div>
+
+
+
+
             </div>
         </div>
     </>)
