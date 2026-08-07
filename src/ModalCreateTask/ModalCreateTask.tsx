@@ -260,6 +260,15 @@ export function ModalCreateTaskOptions({ onClose }: ModalCreateTaskProps) {
                             </>
                         }
                     </div>
+                </div>
+                <div className={style.ModalOptions}>
+                    <button
+                        className={style.ModalOptions__Cancel}
+                        onClick={onClose}
+                        aria-label='Cancel'
+                    >
+                        <span>Cancel</span>
+                    </button>
                     <button
                         className={style.ModalOptions__Create}
                         onClick={handleCreate}
@@ -268,14 +277,9 @@ export function ModalCreateTaskOptions({ onClose }: ModalCreateTaskProps) {
                         <span>Create</span>
                     </button>
 
-                    <button
-                        className={style.ModalOptions__Cancel}
-                        onClick={onClose}
-                        aria-label='Cancel'
-                    >
-                        <span>Cancel</span>
-                    </button>
+
                 </div>
+
             </div>
         </div>
     </>)

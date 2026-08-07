@@ -45,7 +45,6 @@
     flex-direction: row;
     align-items: center;
     gap: var(--bd-regular-gap);
-    flex-wrap: wrap;
 }
 
 .ModalOptions__Edit {
@@ -126,4 +125,36 @@
 
 .DropdownItem:hover {
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+.ModalOptions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.ModalOptions__Create,
+.ModalOptions__Cancel {
+    padding: 10px 20px;
+    border-radius: var(--bd-card-border-radius);
+    border: none;
+    cursor: pointer;
+    font-size: var(--bd-text-md);
+    font-weight: var(--bd-text-weight-regular);
+    transition: all 0.2s;
+    color: var(--color-neutral-1)
+}
+
+.ModalOptions__Create {
+    background-color: var(--color-primary-4);
+}
+
+.ModalOptions__Create:hover {
+    opacity: 0.9;
+}
+
+.ModalOptions__Cancel {
+    background-color: var(--color-neutral-3);
+    color: var(--color-neutral-1);
 }
