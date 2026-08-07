@@ -8,9 +8,8 @@ export function ApplicationSideBar() {
 
     return (
         <div className={styles.container}>
-
+            <img src="sideBarIcons/logo.svg" alt="Logo" className={styles.logo} />
             <nav>
-                <img src="sideBarIcons/logo.svg" alt="Logo" className={styles.logo} />
                 <ul className={styles.options__sidebar} >
                     {navItems.map((item) => (
                         <SideBarItem
