@@ -9,6 +9,7 @@
     right: var(--bd-regular-width-spacing);
     font-size: var(--bd-text-md);
     animation: slideIn 0.3s ease-out;
+    z-index: 1002
 }
 
 .toast-success {
