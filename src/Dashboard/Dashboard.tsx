@@ -10,8 +10,8 @@ import { useSearch } from "../SearchContext/SearchContext"
 
 export const statuses: TaskStatus[] = ['BACKLOG', 'TODO', 'IN_PROGRESS', 'DONE', 'CANCELLED']
 export function Dashboard() {
-    const { searchTerm } = useSearch()
-    const { data: tasks, isLoading, error } = useQueryTasks(searchTerm)
+    const { filters, setFilters } = useSearch()
+    const { data: tasks, isLoading, error } = useQueryTasks(filters)
     const [isCurrentView, setIsCurrentView] = useState<ViewMode>('LIST')
     const [isCreatingNewTask, setIsCreatingNewTask] = useState(false)
 

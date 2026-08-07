@@ -23,10 +23,13 @@ const TASKS_QUERY = `query getTasks($input: FilterTaskInput!){
                     }
                 `;
 
-export function useQueryTasks(searchTerm?) {
-    const queryKey = ['tasks', searchTerm]
+export function useQueryTasks(filters?: { searchTerm?: string; dueDate?: string }) {
+    const queryKey = ['tasks', filters]
     const queryFn = async () => {
-        const input = searchTerm ? { name: searchTerm } : {}
+        const input = {
+            ...(filters?.searchTerm && { name: filters.searchTerm }),
+            ...(filters?.dueDate && { dueDate: filters.dueDate })
+        }
         const data = await fetchData(TASKS_QUERY, { input })
         return data.tasks
     }
