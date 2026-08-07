@@ -5,7 +5,8 @@ import styles from './TaskColumn.module.css'
 
 type TaskColumnProps = {
     state: TaskStatus,
-    tasks: Task[]
+    tasks: Task[],
+    count: number,
 }
 
 const status: Record<TaskStatus, string> = {
@@ -15,9 +16,9 @@ const status: Record<TaskStatus, string> = {
     DONE: 'Done',
     CANCELLED: 'Cancelled',
 }
-export function TaskColumn({ state, tasks }: TaskColumnProps) {
+export function TaskColumn({ state, tasks, count }: TaskColumnProps) {
     return <div className={styles.taskColumn}>
-        <span className={styles.taskColumn__status}>{status[state]}</span>
+        <span className={styles.taskColumn__status}>{status[state]} {count > 0 && `(${count.toString().padStart(2, '0')})`}</span>
         <div>{tasks.map((task) => (
             <Card key={task.id} task={task} />
         ))}</div>

@@ -26,13 +26,17 @@ export function Dashboard() {
                 ) : !tasks || tasks.length === 0 ? (
                     <p>No results found</p>
                 ) : (
-                    statuses.map((status: TaskStatus) => (
-                        <TaskColumn
-                            key={status}
-                            state={status}
-                            tasks={tasks.filter(t => t.status === status)}
-                        />
-                    ))
+                    statuses.map((status: TaskStatus) => {
+                        const statusTasks = tasks.filter(t => t.status === status);
+                        return (
+                            <TaskColumn
+                                key={status}
+                                state={status}
+                                tasks={statusTasks}
+                                count={statusTasks.length}
+                            />
+                        );
+                    })
                 )}
             </div>
             {isCreatingNewTask && (
