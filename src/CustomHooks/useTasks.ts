@@ -1,6 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import type { Task } from "../Task/Task";
+import type { Task, TaskStatus } from "../Task/Task";
 import { fetchData } from "../FetchData/fetchData";
+import type { PointEstimate } from "../Card/Card";
+import type { TaskTag } from "../Tag/Tag";
 
 const TASKS_QUERY = `query getTasks($input: FilterTaskInput!){  
                         tasks(input: $input){ 
@@ -21,10 +23,11 @@ const TASKS_QUERY = `query getTasks($input: FilterTaskInput!){
                     }
                 `;
 
-export function useQueryTasks() {
-    const queryKey = ['tasks']
+export function useQueryTasks(searchTerm?) {
+    const queryKey = ['tasks', searchTerm]
     const queryFn = async () => {
-        const data = await fetchData(TASKS_QUERY, { input: {} })
+        const input = searchTerm ? { name: searchTerm } : {}
+        const data = await fetchData(TASKS_QUERY, { input })
         return data.tasks
     }
     return useQuery<Task[]>({ queryKey, queryFn })
@@ -72,6 +75,36 @@ export function useDeleteTask() {
         mutationFn: async (variables: { input: { id: string } }) => {
             const data = await fetchData(TASKS_QUERY_DELETE, variables)
             return data.deleteTask
+        },
+        onSuccess: () => {
+            storedQueryClient.invalidateQueries({ queryKey: ['tasks'] })
+        }
+    })
+}
+
+const TASKS_QUERY_CREATE = `mutation createTask($input: CreateTaskInput!){  
+                        createTask(input: $input){ 
+                            id
+                            status
+                            name
+                            tags
+                            pointEstimate
+                            assignee { 
+                                id
+                                fullName
+                                avatar
+                            }
+                            dueDate
+                            } 
+                    }
+                `;
+
+export function useCreateTask() {
+    const storedQueryClient = useQueryClient()
+    return useMutation({
+        mutationFn: async (variables: { input: { status: TaskStatus; name: string; tags: TaskTag[]; pointEstimate: PointEstimate; dueDate: string; assigneeId?: string } }) => {
+            const data = await fetchData(TASKS_QUERY_CREATE, variables)
+            return data.createTask
         },
         onSuccess: () => {
             storedQueryClient.invalidateQueries({ queryKey: ['tasks'] })

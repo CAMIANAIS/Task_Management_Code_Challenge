@@ -1,0 +1,129 @@
+/* ---- MAIN MODAL STYLES ---- */
+.ModalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(34, 37, 40, 0.85);
+    z-index: 999;
+    cursor: pointer;
+}
+
+.Modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: var(--color-neutral-4);
+    border: 2px solid var(--color-neutral-3);
+    border-radius: 12px;
+    padding: 24px;
+    min-width: 800px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.ModalInfoOptions__Container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.ModalHeader input {
+    width: 100%;
+    background-color: transparent;
+    color: var(--color-neutral-1);
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    outline: none;
+}
+
+.OptionsRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--bd-regular-gap);
+    flex-wrap: wrap;
+}
+
+.ModalOptions__Edit {
+    background-color: var(--color-neutral-3);
+    border: var(--bd-card-border-width) solid var(--color-neutral-2);
+    border-radius: var(--bd-card-border-radius);
+    padding: 8px 12px;
+    color: var(--color-neutral-1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--bd-text-md);
+    font-weight: var(--bd-text-weight-regular);
+    transition: all 0.2s;
+}
+
+.ModalOptions__Edit:hover {
+    background-color: var(--color-neutral-2);
+}
+
+/* ---- DROPDOWN STYLES ---- */
+.DropdownWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Invisible backdrop to capture clicks outside the dropdown */
+.DropdownBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1001;
+    cursor: default;
+}
+
+.DropdownMenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    /* Positions exactly below the button */
+    left: 0;
+    z-index: 1002;
+    background-color: var(--color-neutral-4);
+    border: 1px solid var(--color-neutral-3);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    min-width: 240px;
+    max-height: 350px;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.DropdownTitle {
+    font-size: var(--bd-text-md);
+    font-weight: 600;
+    color: var(--color-neutral-2);
+    padding: 12px;
+    border-bottom: 1px solid var(--color-neutral-3);
+}
+
+.DropdownItem {
+    background-color: transparent;
+    border: none;
+    color: var(--color-neutral-1);
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--bd-text-md);
+    transition: background-color 0.2s;
+    text-align: left;
+    width: 100%;
+}
+
+.DropdownItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}

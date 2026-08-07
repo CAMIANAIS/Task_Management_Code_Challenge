@@ -1,0 +1,32 @@
+.ModalOptions__Container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 6fr 1fr;
+    background: var(--color-neutral-4);
+    padding: var(--bd-regular-padding);
+    position: relative;
+    margin: var(--bd-regular-padding)
+}
+
+.ModalOptions__ViewChange {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    display: flex;
+    align-items: center;
+    margin: var(--bd-card-margin);
+    color: var(--color-neutral-3);
+    gap: var(--bd-regular-gap);
+}
+
+.ModalOptions__Create {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    display: flex;
+    align-items: flex-end;
+    margin: var(--bd-card-margin);
+    color: var(--color-neutral-3);
+    gap: var(--bd-regular-gap);
+}
