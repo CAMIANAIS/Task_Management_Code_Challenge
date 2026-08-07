@@ -1,9 +1,32 @@
 ## Project Description
-(what is this app, who's it for, what does it do — 2-4 sentences)
+This is a task Management with CRUD functionalities.But beyond that is the project where I used new tools like GraphQL,TanStack Query and context I tried to practice as many mutations as I can, and all the decisions I took are documented on Rationale. I am happy with how much I learned until this point. And of course there is always features I would like to implement if the time would be longer.
 
 ## Setup / Running Instructions
-(clone, install, env vars needed, dev server command, build command)
 
+### Prerequisites
+- Node.js 22.20.0
+- An API access token 
+
+### Installation
+```bash
+git clone <https://github.com/CAMIANAIS/Task_Management_Code_Challenge>
+cd Task_Management_Code_Challenge
+npm install
+
+```
+Create a `.env` file in the project root:
+```
+VITE_API_TOKEN=your_token_here
+```
+### Running
+```bash npm run dev      
+# starts the dev server
+npm run build   
+
+# production build
+
+
+```
 ## Screenshots / GIFs
 (placeholder for now — fill in once the dashboard actually renders)
 
@@ -17,6 +40,10 @@
 I use tokens for readibility, reusability and if one day i decided to change something either theme dark or light I am sure every element already changed as well on styling.
 
 I am choosing font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, since this is a well-known industry pattern called the "system font stack."
+
+I did not use other libraries since I want to learn pure CSS, with the layout(grid and flexbox).
+
+I had the oportunity of learning of to make it posible those effects of obackdrop div, onclick and the z-index in the modals , and make it able to listen if an user is making a click outside the modal , those behaviour were implicit when i use libraries but I actually know it could be resolved this way or using useRef but I chose the simple tecnique.
 
 ### State management: TanStack Query + Context
 
@@ -43,13 +70,35 @@ App.tsx maps a URL path to the page every component mounts, distinct job from La
 
 ### React-day-picker
 Building a fully custom calendar grid by hand correct day-of-week math, month lengths, leap years, keyboard nav, a11y is valid work and that's mostly about calendar arithmetic, not about the React/GraphQL fundamentals, which I think this challenge is actually testing on.
+### Avatar Fallback
+Initials or stock photo vs robohash or another resource , since in real projects it is common to see initials by default when user do not set a profile image.For me It looks more real in comparison of fake pictures.
+
+I use TansStack for every network call , but a raw fetch+ useEffect to get the initials for default,no caching! it means there is a re-checks the same broken URL every time this component remounts A useQuery hook here would be more consistent with my existing patterns and caching for free.So this is a work in progress now.
+### Stale Time Usage
+I did stablish 5 minutes on stale Time for Profile and Users since this data rarely changes. It could change using setttings tab with the edit option which is not implemented yet, but a user hardly ever change information.
+
+That is not the case of Tasks, this infomration is frequently mutated and it force to refetch using invalidateQueries anyway!
+
 ### Other rationale
 - why useUpdateTask takes a Partial<Omit<Task,'id'>> instead of a fixed set of fields? the reasoning is those different features (estimate, tag, dueDate, status) each only touch one field, so requiring all of them would force callers to always resend the whole task.
 
-- function ModalInfoOptions is edit-only , for creating it needs a different data flow (draft state + single submit).
+- The function ModalEditTaskOptions is edit-only , the function ModalCreateTaskOptions for creating needs a different data flow (draft state + single submit).
+
+- Filtering by status on Grid View would be a disabled option. Columns already show status, filtering by status does not have sense.
+-Tests were not mentioned on this guidelines but of course I would dig a little bit on it but considering the timeline I prioritize complete functionality first.
+
+
 
 ## Technologies / Libraries Used
-(the actual list, once dependencies are finalized)
+| Technology | Purpose |
+|---|---|
+| React 19 | UI library |
+| TypeScript | Static typing |
+| Vite | Build tool / dev server |
+| TanStack Query | Server state (data fetching, caching) |
+| React Router | Client-side routing |
+| react-day-picker | Date picker UI (due date selection) |
+| ESLint + typescript-eslint | Linting |
 
 ## Additional Information
 (anything else worth mentioning — assumptions you made on ambiguous brief items,
