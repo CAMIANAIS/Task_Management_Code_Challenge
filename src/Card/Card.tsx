@@ -9,6 +9,7 @@ import { useUpdateTask, useDeleteTask } from '../CustomHooks/useTasks'
 import { ModalEditTaskOptions } from '../ModalEditTask/ModalEditTask'
 import { ModalConfirmationOptions } from '../ModalConfirmation/ModalConfirmation'
 import { useToast } from '../NotificationContext/NotificationContext'
+import { getColoredDueDate } from '../Utils/getColoredDueDate'
 type CardProps = {
     task: Task,
 }
@@ -28,6 +29,9 @@ export function Card({ task }: CardProps) {
     const [isConfirmationOpen, setIsConfrmationOpen] = useState(false)
     const updateTask = useUpdateTask()
     const confirmDeleteTask = useDeleteTask()
+    const { text, background } = getColoredDueDate({ dateString: task.dueDate })
+    const dueDateColor = getColoredDueDate({ dateString: task.dueDate })
+    const dueDateBackground = getColoredDueDate({ dateString: task.dueDate })
     const { showToast } = useToast()
     const handleEdit = () => {
         setIsFormOpen(true)
@@ -118,14 +122,15 @@ export function Card({ task }: CardProps) {
 
         <div className={style.card__description}>
             <p className={style.card__pointEstimate}>{pointEstimate[task.pointEstimate]}</p>
-            <div className={style.dueDate__details}>
+            <div className={style.dueDate__details} style={{ background: dueDateColor.background }} >
                 <img src="cardIcons/dueDate.svg" alt="dueDate" />
-                <span className={style.card__date}>{(task.dueDate ? getFormattedDate({ dateString: task.dueDate }) : 'no Due Date assigned')}</span>
+                <span className={style.card__date} style={{ color: dueDateColor.text }} >{(task.dueDate ? getFormattedDate({ dateString: task.dueDate }) : 'no Due Date assigned')}</span>
             </div>
         </div>
         <div className={style.tags__container}>{task.tags.map((tag) => (
             <Tag key={tag} tag={tag} />
         ))}</div>
+
         <div>{task.assignee ? <Avatar avatar={task.assignee.avatar} fullName={task.assignee.fullName} size='sm' showName={false} /> : <span>No assignee</span>}</div>
     </div>
 }

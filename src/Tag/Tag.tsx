@@ -12,6 +12,8 @@ const tagColors: Record<TaskTag, string> = {
     REACT: 'var(--color-cuaternary-1)',
 }
 
+
+
 export function Tag({ tag }: TagProps) {
     return <p className={style.task__item} style={{ color: tagColors[tag], backgroundColor: `color-mix(in srgb, ${tagColors[tag]} 15%, transparent)` }}>{tag}</p>
 }
