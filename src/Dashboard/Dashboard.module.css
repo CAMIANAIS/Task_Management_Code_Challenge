@@ -3,11 +3,6 @@
     grid-template-columns: auto auto auto auto auto;
     column-gap: var(--bd-columns-width-spacing);
     padding: var(--bd-columns-width-spacing);
-}
-
-
-@media (max-width: 640px) {
-    .container {
-        overflow-x: auto;
-    }
+    overflow-x: auto;
+    overflow-y: hidden;
 }

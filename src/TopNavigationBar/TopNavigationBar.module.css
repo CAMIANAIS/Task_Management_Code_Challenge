@@ -1,7 +1,7 @@
 .top_navigation__bar {
     display: grid;
     grid-template-columns: 1fr auto auto auto;
-    margin: var(--bd-regular-margin);
+    margin-left: var(--bd-regular-margin);
     background-color: var(--color-neutral-5);
     border-radius: var(--bd-card-border-radius);
     align-items: center;
@@ -54,10 +54,11 @@
     display: flex;
     flex: 1;
     align-items: center;
-    gap: 8px;
+    gap: var(--bd-regular-gap);
     background: var(--color-neutral-3);
     border-radius: 6px;
-    padding: 6px 12px;
+    padding: var(--bd-regular-padding);
+    height: 56px;
 }
 
 .search__icon {

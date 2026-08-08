@@ -3,7 +3,9 @@
     grid-template-columns: auto auto 1fr auto;
     background: var(--color-neutral-5);
     padding: var(--bd-regular-padding);
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .ModalOptions__ViewChange {

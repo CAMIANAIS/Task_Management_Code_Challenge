@@ -41,8 +41,8 @@
 }
 
 .OptionsRow {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
     align-items: center;
     gap: var(--bd-regular-gap);
 }
@@ -157,4 +157,20 @@
 .ModalOptions__Cancel {
     background-color: var(--color-neutral-3);
     color: var(--color-neutral-1);
+}
+
+@media (max-width: 640px) {
+    .OptionsRow {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        gap: var(--bd-regular-gap);
+    }
+
+    .Modal {
+        min-width: 20px;
+    }
+
+
+
 }

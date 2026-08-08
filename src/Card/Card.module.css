@@ -11,6 +11,7 @@
     border-radius: var(--bd-card-border-radius);
     margin-top: var(--bd-regular-gap);
     position: relative;
+    width: 348px;
 }
 
 .topNavigation {

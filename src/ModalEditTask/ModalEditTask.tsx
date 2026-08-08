@@ -235,7 +235,24 @@ export function ModalEditTaskOptions({ onEstimate, onAssignee, onTag, onDueDate,
                     </div>
                 </div>
 
+                <div className={style.ModalOptions}>
+                    <button
+                        className={style.ModalOptions__Cancel}
+                        onClick={onClose}
+                        aria-label='Cancel'
+                    >
+                        <span>Cancel</span>
+                    </button>
+                    <button
+                        className={style.ModalOptions__Update}
+                        onClick={onClose}
+                        aria-label='Edit task'
+                    >
+                        <span>Update</span>
+                    </button>
 
+
+                </div>
 
 
             </div>

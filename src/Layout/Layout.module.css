@@ -2,14 +2,17 @@
     display: grid;
     grid-template-columns: 250px 1fr;
     grid-template-rows: auto 1fr;
-    height: 100vh;
+    height: 95vh;
     gap: 0;
+    margin: var(--bd-regular-margin);
 }
 
 .layout__right__section {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
+    overflow: hidden;
+
 }
 
 .layout__top_navigation__bar {
