@@ -9,7 +9,7 @@ This is a task Management with CRUD functionalities.But beyond that is the proje
 
 ### Installation
 ```bash
-git clone <https://github.com/CAMIANAIS/Task_Management_Code_Challenge>
+git clone https://github.com/CAMIANAIS/Task_Management_Code_Challenge
 cd Task_Management_Code_Challenge
 npm install
 
@@ -19,16 +19,13 @@ Create a `.env` file in the project root:
 VITE_API_TOKEN=your_token_here
 ```
 ### Running
-```bash npm run dev      
+```bash 
+npm run dev      
 # starts the dev server
 npm run build   
-
-# production build
-
-
 ```
-## Screenshots / GIFs
-(placeholder for now — fill in once the dashboard actually renders)
+## How it looks
+img='./Screen Recording 2026-08-07 at 9.56.07 PM'
 
 ## Rationale
 
@@ -100,6 +97,46 @@ That is not the case of Tasks, this infomration is frequently mutated and it for
 | react-day-picker | Date picker UI (due date selection) |
 | ESLint + typescript-eslint | Linting |
 
+## Features Completed
+### General Requirements
+- [x] Public GitHub repository
+- [x] Commit early and often with clear comments (51 commits, conventional-commit format)
+- [x] Follow the Figma design system for components/spacing/colors
+- [x] Organize code into a clear folder structure
+### Phase 1 — Initial Setup
+- [x] Folder structure
+- [x] Routing (incl. NotFound)
+- [x] Styles solution (CSS Modules + design tokens)
+- [x] Linting (ESLint)
+- [ ] Error boundary
+
+### Phase 2 — Dashboard UI
+- [x] Sidebar, header, main content, task card
+
+### Phase 3 — Connect to API
+- [x] Get tasks (loading/error/empty states)
+- [x] Create task + mutation + error handling
+
+### Phase 4 — Update/Delete
+- [x] Update mutation + modal + notification
+- [x] Delete mutation + confirm + notification
+
+### Phase 5 — Search & Filter
+- [x] Name
+- [x] DueDate
+- [ ] OwnerId
+- [ ] Status *(deferred — see Rationale/Additional Information)*
+- [ ] Tags
+- [ ] EstimatedPoints
+
+### Phase 6 — Settings/Profile page
+- [x] Profile query + user info display
+
+### Bonus
+- [x] Task count per column
+- [x] Overdue date coloring
+- [ ] Drag and drop
+- [ ] Functional list/grid distinction
+- [ ] Add-task animations
 ## Additional Information
-(anything else worth mentioning — assumptions you made on ambiguous brief items,
- known gaps, bonus features attempted, etc.)
+I did work on an util for overdue coloring part and also the counting tasks.Also
