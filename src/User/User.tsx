@@ -11,9 +11,3 @@ export type User = {
 type UserType = 'ADMIN' | 'CANDIDATE'
 
 
-
-function User({ id, avatar, createdAt, email, fullName, type, updatedAt }: User) {
-    return <div>
-        <p>{id}</p>
-    </div>
-}

@@ -1,7 +1,12 @@
 import { createContext, useContext, useState } from "react";
-const SearchContext = createContext(null)
+type Filters = { searchTerm: string; dueDate: string }
+type SearchContextType = {
+    filters: Filters
+    setFilters: React.Dispatch<React.SetStateAction<Filters>>
+} | null
+const SearchContext = createContext<SearchContextType>(null)
 
-export function SearchProvider({ children }) {
+export function SearchProvider({ children }: { children: React.ReactNode }) {
     const [filters, setFilters] = useState({ searchTerm: '', dueDate: '' })
 
     return (
@@ -12,5 +17,7 @@ export function SearchProvider({ children }) {
     )
 }
 export function useSearch() {
-    return useContext(SearchContext)
+    const context = useContext(SearchContext)
+    if (!context) throw new Error('useSearch must be used within a SearchProvider')
+    return context
 }

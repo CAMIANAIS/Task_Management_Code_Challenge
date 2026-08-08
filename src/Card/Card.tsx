@@ -29,7 +29,7 @@ export function Card({ task }: CardProps) {
     const [isConfirmationOpen, setIsConfrmationOpen] = useState(false)
     const updateTask = useUpdateTask()
     const confirmDeleteTask = useDeleteTask()
-    const dueDateColor = getColoredDueDate({ dateString: task.dueDate })
+    const dueDateColor = task.dueDate ? getColoredDueDate({ dateString: task.dueDate }) : null
     const { showToast } = useToast()
     const handleEdit = () => {
         setIsFormOpen(true)
@@ -120,9 +120,9 @@ export function Card({ task }: CardProps) {
 
         <div className={style.card__description}>
             <p className={style.card__pointEstimate}>{pointEstimate[task.pointEstimate]}</p>
-            <div className={style.dueDate__details} style={{ background: dueDateColor.background }} >
+            <div className={style.dueDate__details} style={{ background: dueDateColor?.background }} >
                 <img src="cardIcons/dueDate.svg" alt="dueDate" />
-                <span className={style.card__date} style={{ color: dueDateColor.text }} >{(task.dueDate ? getFormattedDate({ dateString: task.dueDate }) : 'no Due Date assigned')}</span>
+                <span className={style.card__date} style={{ color: dueDateColor?.text }} >{(task.dueDate ? getFormattedDate({ dateString: task.dueDate }) : 'no Due Date assigned')}</span>
             </div>
         </div>
         <div className={style.tags__container}>{task.tags.map((tag) => (

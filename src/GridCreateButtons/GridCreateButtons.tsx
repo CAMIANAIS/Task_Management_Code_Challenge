@@ -2,7 +2,7 @@ import styles from './GridCreateButtons.module.css'
 export type ViewMode = 'LIST' | 'GRID'
 interface ModalGridCreateProps {
     currentView: ViewMode
-    onViewChange: (view) => void;
+    onViewChange: (view: ViewMode) => void;
     onCreate: () => void;
 }
 
