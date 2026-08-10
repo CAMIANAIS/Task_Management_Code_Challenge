@@ -15,23 +15,28 @@ export function ModalEditOptions({ onEdit, onDelete, onClose }: ModalOptionsProp
         onDelete();
         onClose?.();
     }
-    return <div className={styles.ModalOptions__Container} role="menu">
-        <button
-            className={styles.ModalOptions__Edit}
-            onClick={handleEdit}
-            aria-label='Edit task'
-        >
-            <img src='./dropdownIcons/edit.svg' alt='edit' aria-hidden='true' />
-            <span>Edit</span>
-        </button>
+    return (
+        <>
+            {onClose && <div className={styles.DropdownBackdrop} onClick={onClose} />}
+            <div className={styles.ModalOptions__Container} role="menu">
+                <button
+                    className={styles.ModalOptions__Edit}
+                    onClick={handleEdit}
+                    aria-label='Edit task'
+                >
+                    <img src='./dropdownIcons/edit.svg' alt='edit' aria-hidden='true' />
+                    <span>Edit</span>
+                </button>
 
-        <button
-            className={styles.ModalOptions__Delete}
-            onClick={handleDelete}
-            aria-label='Delete task'
-        >
-            <img src='./dropdownIcons/delete.svg' alt='delete' />
-            <span>Delete</span>
-        </button>
-    </div>
+                <button
+                    className={styles.ModalOptions__Delete}
+                    onClick={handleDelete}
+                    aria-label='Delete task'
+                >
+                    <img src='./dropdownIcons/delete.svg' alt='delete' />
+                    <span>Delete</span>
+                </button>
+            </div>
+        </>
+    )
 }
