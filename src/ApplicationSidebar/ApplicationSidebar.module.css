@@ -41,17 +41,32 @@
 
 @media (max-width: 640px) {
     .container {
-        width: 70px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        grid-row: auto;
+        grid-column: auto;
+        height: auto;
+        border-radius: 0;
+        z-index: 999;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: var(--bd-small-padding);
+        overflow: visible;
     }
 
     .logo {
-        height: 70px;
-        padding: 8px;
+        display: none;
     }
 
     .options__sidebar {
-        padding: var(--bd-small-padding) 0;
+        flex-direction: row;
+        width: 100%;
         gap: var(--bd-small-gap);
+        padding: 0;
+        align-items: center;
+        justify-content: space-around;
     }
-
 }

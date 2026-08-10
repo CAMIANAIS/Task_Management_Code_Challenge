@@ -60,7 +60,25 @@
 }
 
 @media (max-width: 640px) {
-    .nav__item {
+    .nav__label {
         display: none;
     }
+
+    .nav__item {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .nav__link {
+        padding: var(--bd-small-padding);
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-icon {
+        height: 24px;
+        width: 24px;
+    }
+
 }
