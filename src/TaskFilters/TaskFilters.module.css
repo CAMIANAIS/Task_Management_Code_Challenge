@@ -1,0 +1,95 @@
+.FiltersContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: var(--bd--regular-margin);
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--bd-regular-margin);
+}
+
+.FiltersContainer img {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+    opacity: 0.7;
+}
+
+.FiltersContainer>div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.DropdownWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.DropdownBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1001;
+    cursor: default;
+}
+
+.DropdownMenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 1002;
+    background-color: var(--color-neutral-4);
+    border: 1px solid var(--color-neutral-3);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    min-width: 240px;
+    max-height: 350px;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    padding: var(--bd-regular-padding);
+}
+
+.DropdownTitle {
+    font-size: var(--bd-text-md);
+    font-weight: 600;
+    color: var(--color-neutral-2);
+    padding: 12px;
+    border-bottom: 1px solid var(--color-neutral-3);
+}
+
+.DropdownItem {
+    background-color: transparent;
+    border: none;
+    color: var(--color-neutral-1);
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--bd-text-md);
+    text-align: left;
+    width: 100%;
+}
+
+
+
+
+.ModalOptions__Filter {
+    border: none;
+    opacity: 0.8;
+    background-color: var(--color-neutral-5);
+}
+
+.filterButton {
+    height: 35px;
+    width: auto;
+}

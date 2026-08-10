@@ -8,6 +8,7 @@ import { useState } from "react"
 import { ModalCreateTaskOptions } from "../ModalCreateTask/ModalCreateTask"
 import { useSearch } from "../SearchContext/SearchContext"
 import { ListView } from "../ListView/ListView"
+import { TaskFilters } from "../TaskFilters/TaskFilters"
 export const statuses: TaskStatus[] = ['BACKLOG', 'TODO', 'IN_PROGRESS', 'DONE', 'CANCELLED']
 export function Dashboard() {
     const { filters } = useSearch()
@@ -18,7 +19,7 @@ export function Dashboard() {
     return (
         <NotificationProvider>
             <ModalGridCreateButtons currentView={isCurrentView} onViewChange={setIsCurrentView} onCreate={() => setIsCreatingNewTask(true)} ></ModalGridCreateButtons>
-
+            <TaskFilters></TaskFilters>
             <div className={isCurrentView === 'GRID' ? styles.container : styles.listContainer}>
                 {isLoading ? (
                     <p>Loading</p>

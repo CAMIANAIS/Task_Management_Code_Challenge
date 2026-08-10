@@ -10,5 +10,5 @@
 .listContainer {
     display: grid;
     overflow-x: auto;
-    overflow-y: hidden;
+    padding-left: var(--bd-regular-padding);
 }

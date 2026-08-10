@@ -1,53 +1,12 @@
 .top_navigation__bar {
     display: grid;
-    grid-template-columns: 1fr auto auto auto;
+    grid-template-columns: 1fr auto auto;
     margin-left: var(--bd-regular-margin);
     background-color: var(--color-neutral-5);
     border-radius: var(--bd-card-border-radius);
     align-items: center;
 }
 
-
-.DropdownWrapper {
-    position: relative;
-    overflow: visible;
-}
-
-.DropdownMenu {
-    position: fixed;
-    /* Use fixed instead of absolute for better control */
-    top: auto;
-    right: 0;
-    left: auto;
-    /* Remove left positioning */
-    z-index: 1000;
-    background: var(--color-neutral-4);
-    border-radius: var(--bd-card-border-radius);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    margin-right: 16px;
-    /* Space from right edge */
-    margin-top: 8px;
-    padding: var(--bd-regular-padding)
-}
-
-.DropdownBackdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    background: transparent;
-
-}
-
-
-.ModalOptions__FilterDueDate {
-    background: var(--color-neutral-3);
-    border: none;
-    opacity: 0.8;
-
-}
 
 
 .search__container {

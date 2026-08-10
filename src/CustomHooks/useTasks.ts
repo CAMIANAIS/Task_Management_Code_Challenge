@@ -22,13 +22,15 @@ const TASKS_QUERY = `query getTasks($input: FilterTaskInput!){
                             } 
                     }
                 `;
-
-export function useQueryTasks(filters?: { searchTerm?: string; dueDate?: string }) {
+export function useQueryTasks(filters?: { searchTerm?: string; dueDate?: string; tags?: TaskTag[]; pointEstimate?: PointEstimate, assigneeId?: string }) {
     const queryKey = ['tasks', filters]
     const queryFn = async () => {
         const input = {
             ...(filters?.searchTerm && { name: filters.searchTerm }),
-            ...(filters?.dueDate && { dueDate: filters.dueDate })
+            ...(filters?.dueDate && { dueDate: filters.dueDate }),
+            ...(filters?.pointEstimate && { pointEstimate: filters.pointEstimate }),
+            ...(filters?.assigneeId && { assigneeId: filters.assigneeId }),
+            ...(filters?.tags?.length && { tags: filters.tags })
         }
         const data = await fetchData(TASKS_QUERY, { input })
         return data.tasks
