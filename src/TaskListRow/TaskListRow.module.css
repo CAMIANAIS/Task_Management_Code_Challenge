@@ -1,0 +1,121 @@
+.taskListRow {
+    display: flex;
+    gap: var(--bd-regular-gap);
+    padding: var(--bd-regular-padding);
+    border-left: 4px solid;
+    border-bottom: 1px solid var(--color-neutral-4);
+    align-items: center;
+    transition: background-color 0.15s ease;
+    position: relative;
+}
+
+.taskListRow:hover {
+    background-color: var(--color-neutral-4);
+}
+
+/* Task cell base styles */
+.taskCell {
+    padding: var(--bd-small-padding);
+    color: var(--color-neutral-1);
+    font-size: var(--bd-text-sm);
+    line-height: var(--bd-text-sm-line-height);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: var(--bd-small-gap);
+}
+
+/* Task name cell */
+.taskIndex {
+    display: inline-block;
+    min-width: 2.5rem;
+    color: var(--color-neutral-1);
+    font-size: var(--bd-text-sm);
+}
+
+.taskName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--color-neutral-1);
+}
+
+/* Tags cell */
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bd-small-gap);
+    align-items: center;
+    padding-left: var(--bd-small-padding);
+    padding-right: var(--bd-small-padding);
+}
+
+/* Estimate cell */
+.estimate {
+    display: inline-block;
+    font-size: var(--bd-text-sm);
+    color: var(--color-neutral-1);
+    white-space: nowrap;
+}
+
+/* Assignee cell */
+.assigneeContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--bd-small-gap);
+}
+
+/* Due date cell */
+.dueDate {
+    white-space: nowrap;
+    border-radius: var(--bd-regular-radius);
+    padding-left: var(--bd-small-padding);
+    padding-right: var(--bd-small-padding);
+}
+
+/* Empty/placeholder cell */
+.emptyCell {
+    color: var(--color-neutral-2);
+    font-size: var(--bd-text-sm);
+}
+
+/* Menu button */
+.moreButton {
+    background: transparent;
+    border: none;
+    padding: var(--bd-small-padding);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--bd-regular-radius);
+    transition: background-color 0.15s ease;
+}
+
+.moreButton:hover {
+    background-color: var(--color-neutral-4);
+}
+
+.moreButton img {
+    width: 1.25rem;
+    height: 1.25rem;
+    opacity: 0.7;
+    transition: opacity 0.15s ease;
+}
+
+.moreButton:hover img {
+    opacity: 1;
+}
+
+/* Screen reader only text for due date status */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

@@ -1,0 +1,69 @@
+.listView {
+    width: 100%;
+    padding: 0;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Shared header row */
+.headerRow {
+    display: flex;
+    gap: var(--bd-regular-gap);
+    padding: var(--bd-regular-padding);
+    background: var(--color-neutral-4);
+    border-bottom: var(--bd-card-border-width) solid var(--color-neutral-3);
+    font-size: var(--bd-text-sm);
+    line-height: var(--bd-text-sm-line-height);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.headerCell {
+    padding: var(--bd-small-padding);
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Status sections */
+.statusSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-bottom: var(--bd-card-border-width) solid var(--color-neutral-3);
+}
+
+.statusHeader {
+    display: flex;
+    align-items: center;
+    gap: var(--bd-small-gap);
+    padding: var(--bd-regular-padding);
+    background: var(--color-neutral-5);
+    border-left: 4px solid var(--color-primary-4);
+    border-bottom: var(--bd-card-border-width) solid var(--color-neutral-3);
+}
+
+.statusTitle {
+    margin: 0;
+    font-size: var(--bd-text-sm);
+    font-weight: var(--bd-text-weight-regular);
+    line-height: var(--bd-text-sm-line-height);
+    color: var(--color-neutral-1);
+    letter-spacing: var(--bd-text-sm-letter-spacing);
+}
+
+.statusCount {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    color: var(--color-neutral-2);
+    font-size: var(--bd-text-sm);
+    font-weight: var(--bd-text-weight-regular);
+}

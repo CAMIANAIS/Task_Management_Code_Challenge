@@ -6,3 +6,9 @@
     overflow-x: auto;
     overflow-y: hidden;
 }
+
+.listContainer {
+    display: grid;
+    overflow-x: auto;
+    overflow-y: hidden;
+}

@@ -9,7 +9,7 @@ type TaskColumnProps = {
     count: number,
 }
 
-const status: Record<TaskStatus, string> = {
+export const status: Record<TaskStatus, string> = {
     BACKLOG: 'Backlog',
     TODO: 'To Do',
     IN_PROGRESS: 'In Progress',
