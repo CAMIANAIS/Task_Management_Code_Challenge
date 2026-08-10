@@ -124,10 +124,10 @@ That is not the case of Tasks, this infomration is frequently mutated and it for
 ### Phase 5 — Search & Filter
 - [x] Name
 - [x] DueDate
-- [ ] OwnerId
-- [ ] Status *(deferred — see Rationale/Additional Information)*
-- [ ] Tags
-- [ ] EstimatedPoints
+- [x] OwnerId
+- [x] Status *(deferred — see Rationale/Additional Information)*
+- [x] Tags
+- [x] EstimatedPoints
 
 ### Phase 6 — Settings/Profile page
 - [x] Profile query + user info display
@@ -136,7 +136,7 @@ That is not the case of Tasks, this infomration is frequently mutated and it for
 - [x] Task count per column
 - [x] Overdue date coloring
 - [ ] Drag and drop
-- [ ] Functional list/grid distinction
+- [x] Functional list/grid distinction
 - [ ] Add-task animations
 ## Additional Information
 I did work on an util for overdue coloring part and also the counting tasks.Also
