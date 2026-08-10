@@ -25,7 +25,7 @@ npm run dev
 npm run build   
 ```
 ## How it looks
-![Dashboard demo](/demo/demo.mov)
+![Dashboard demo](/demo/demo.gif)
 
 ## Rationale
 

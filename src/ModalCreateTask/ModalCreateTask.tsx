@@ -11,7 +11,7 @@ import { Avatar } from '../Avatar/Avatar';
 import { statuses } from '../Dashboard/Dashboard';
 import { useCreateTask } from '../CustomHooks/useTasks';
 import { useToast } from '../NotificationContext/NotificationContext';
-
+import { getFormattedRegularDate } from '../Utils/getFormattedRegularDate';
 interface ModalCreateTaskProps {
     onClose?: () => void;
 }
@@ -93,7 +93,7 @@ export function ModalCreateTaskOptions({ onClose }: ModalCreateTaskProps) {
                             aria-label='Edit estimate'
                         >
                             <img src='./modalIcons/estimate.svg' alt='estimate' aria-hidden='true' />
-                            <span>Estimate</span>
+                            <span>{pointEstimate[draft.pointEstimate]}</span>
                         </button>
                         {(isModalOpen === 'Estimate') &&
                             <>
@@ -123,7 +123,7 @@ export function ModalCreateTaskOptions({ onClose }: ModalCreateTaskProps) {
                             aria-label='Edit Tag'
                         >
                             <img src='./modalIcons/tag.svg' alt='tags' aria-hidden='true' />
-                            <span>Label</span>
+                            <span>{draft.tags[0]}</span>
                         </button>
                         {(isModalOpen === 'Tag') &&
                             <>
@@ -161,7 +161,7 @@ export function ModalCreateTaskOptions({ onClose }: ModalCreateTaskProps) {
                             aria-label='Edit DueDate'
                         >
                             <img src='./modalIcons/dueDate.svg' alt='dueDate' aria-hidden='true' />
-                            <span>Due date</span>
+                            <span>{getFormattedRegularDate(draft.dueDate)}</span>
                         </button>
                         {(isModalOpen === 'DueDate') &&
                             <>
@@ -188,7 +188,7 @@ export function ModalCreateTaskOptions({ onClose }: ModalCreateTaskProps) {
                             aria-label='Edit Status'
                         >
                             <img src='./cardIcons/attach.svg' alt='status' aria-hidden='true' />
-                            <span>Status</span>
+                            <span>{draft.status}</span>
                         </button>
                         {(isModalOpen === 'Status') &&
                             <>
@@ -196,7 +196,7 @@ export function ModalCreateTaskOptions({ onClose }: ModalCreateTaskProps) {
                                 <div className={style.DropdownMenu}>
 
                                     <div>
-                                        <span>Status</span>
+                                        <span>{draft.status}</span>
                                         {statuses.map((key) => (
                                             <button
                                                 key={key}
@@ -220,7 +220,10 @@ export function ModalCreateTaskOptions({ onClose }: ModalCreateTaskProps) {
                             aria-label='Edit assignee'
                         >
                             <img src='./modalIcons/assignee.svg' alt='assignee' aria-hidden='true' />
-                            <span>Assignee</span>
+                            <span>{draft.assigneeId ? (() => {
+                                const assignee = users?.find(u => u.id === draft.assigneeId);
+                                return assignee ? <Avatar avatar={assignee.avatar} fullName={assignee.fullName} size='sm' showName={true} /> : null;
+                            })() : <span>No assignee</span>}</span>
                         </button>
 
 
