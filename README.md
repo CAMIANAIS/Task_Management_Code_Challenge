@@ -25,7 +25,7 @@ npm run dev
 npm run build   
 ```
 ## How it looks
-img='./Screen Recording 2026-08-07 at 9.56.07 PM'
+![Dashboard demo](/Screen Recording 2026-08-07 at 9.56.07 PM.mov)
 
 ## Rationale
 
