@@ -9,7 +9,7 @@ import { useUpdateTask, useDeleteTask } from '../CustomHooks/useTasks'
 import { ModalEditTaskOptions } from '../ModalEditTask/ModalEditTask'
 import { ModalConfirmationOptions } from '../ModalConfirmation/ModalConfirmation'
 import { useToast } from '../NotificationContext/NotificationContext'
-import { getColoredDueDate } from '../Utils/getColoredDueDate'
+import { getDueDateStatus } from '../Utils/getDueDateStatus'
 type CardProps = {
     task: Task,
 }
@@ -29,7 +29,7 @@ export function Card({ task }: CardProps) {
     const [isConfirmationOpen, setIsConfrmationOpen] = useState(false)
     const updateTask = useUpdateTask()
     const confirmDeleteTask = useDeleteTask()
-    const dueDateColor = task.dueDate ? getColoredDueDate({ dateString: task.dueDate }) : null
+    const dueDateStatus = task.dueDate ? getDueDateStatus({ dateString: task.dueDate }) : null
     const { showToast } = useToast()
     const handleEdit = () => {
         setIsFormOpen(true)
@@ -120,9 +120,29 @@ export function Card({ task }: CardProps) {
 
         <div className={style.card__description}>
             <p className={style.card__pointEstimate}>{pointEstimate[task.pointEstimate]}</p>
-            <div className={style.dueDate__details} style={{ background: dueDateColor?.background }} >
-                <img src="cardIcons/dueDate.svg" alt="dueDate" />
-                <span className={style.card__date} style={{ color: dueDateColor?.text }} >{(task.dueDate ? getFormattedDate({ dateString: task.dueDate }) : 'no Due Date assigned')}</span>
+            <div
+                className={style.dueDate__details}
+                style={{ background: dueDateStatus?.background }}
+            >
+                <img
+                    src="cardIcons/dueDate.svg"
+                    alt=""
+                />
+                {/* Screen reader users get status + date in reading order */}
+                {dueDateStatus && (
+                    <span className={style[`sr-only`]}>
+                        {dueDateStatus.status},
+                    </span>
+                )}
+                <span
+                    className={style.card__date}
+                    style={{ color: dueDateStatus?.text }}
+                >
+                    {task.dueDate
+                        ? getFormattedDate({ dateString: task.dueDate })
+                        : 'No due date assigned'
+                    }
+                </span>
             </div>
         </div>
         <div className={style.tags__container}>{task.tags.map((tag) => (
