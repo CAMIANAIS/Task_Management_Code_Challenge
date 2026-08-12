@@ -71,7 +71,7 @@ export function useUpdateTask() {
 }
 const TASKS_QUERY_DELETE = `mutation deleteTask($input: DeleteTaskInput!){
                         deleteTask(input: $input) 
-                            
+                            {id}
                     }
                 `;
 export function useDeleteTask() {
