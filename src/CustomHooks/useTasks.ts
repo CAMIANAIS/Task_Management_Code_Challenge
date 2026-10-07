@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { Task, TaskStatus } from "../Task/Task";
 import { fetchData } from "../FetchData/fetchData";
-import type { PointEstimate } from "../Card/Card";
+import type { PointEstimate } from "../constants/constants";
 import type { TaskTag } from "../Tag/Tag";
 
 const TASKS_QUERY = `query getTasks($input: FilterTaskInput!){  

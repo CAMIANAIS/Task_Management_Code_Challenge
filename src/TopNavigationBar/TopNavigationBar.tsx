@@ -1,5 +1,5 @@
 import { Avatar } from "../Avatar/Avatar";
-import { useSearch } from "../SearchContext/SearchContext";
+import { useSearch } from "../SearchContext/useSearch";
 import styles from "./TopNavigationBar.module.css";
 import { useQueryProfile } from "../CustomHooks/useUsers";
 export function TopNavigationBar() {

@@ -1,11 +1,7 @@
-import { createContext, useContext, useState } from "react";
+import {  useState } from "react";
 import style from './NotificationContext.module.css'
-type NotificationContextType = {
-    showToast: (msg: string, status?: string) => void
-} | null
-type ToastNotification = { message: string; status: string } | null
-const NotificationContext = createContext<NotificationContextType>(null)
-
+import type{ ToastNotification } from "./NotificationContextObject";
+import { NotificationContext } from "./NotificationContextObject";
 export function NotificationProvider({ children }: { children: React.ReactNode }) {
     const [notification, setNotification] = useState<ToastNotification>(null)
     const showToast = (msg: string, status = 'success') => {
@@ -25,8 +21,3 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
     )
 }
 
-export function useToast() {
-    const context = useContext(NotificationContext)
-    if (!context) throw new Error('useToast must be used within a SearchProvider')
-    return context
-}

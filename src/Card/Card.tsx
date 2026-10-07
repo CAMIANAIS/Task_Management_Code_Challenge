@@ -8,18 +8,11 @@ import { useState } from 'react'
 import { useUpdateTask, useDeleteTask } from '../CustomHooks/useTasks'
 import { ModalEditTaskOptions } from '../ModalEditTask/ModalEditTask'
 import { ModalConfirmationOptions } from '../ModalConfirmation/ModalConfirmation'
-import { useToast } from '../NotificationContext/NotificationContext'
+import { useToast} from '../NotificationContext/useToast'
 import { getDueDateStatus } from '../Utils/getDueDateStatus'
+import { pointEstimate, type PointEstimate } from '../constants/constants'
 type CardProps = {
     task: Task,
-}
-export type PointEstimate = 'ZERO' | 'ONE' | 'TWO' | 'FOUR' | 'EIGHT'
-export const pointEstimate: Record<PointEstimate, string> = {
-    EIGHT: '8 Pts',
-    FOUR: '4 Pts',
-    ONE: '1 Pt',
-    TWO: '2 Pts',
-    ZERO: '0 Pts',
 }
 
 

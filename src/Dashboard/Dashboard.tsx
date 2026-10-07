@@ -6,10 +6,10 @@ import styles from './Dashboard.module.css'
 import { ModalGridCreateButtons, type ViewMode } from "../GridCreateButtons/GridCreateButtons"
 import { useState } from "react"
 import { ModalCreateTaskOptions } from "../ModalCreateTask/ModalCreateTask"
-import { useSearch } from "../SearchContext/SearchContext"
+import { useSearch } from "../SearchContext/useSearch"
 import { ListView } from "../ListView/ListView"
 import { TaskFilters } from "../TaskFilters/TaskFilters"
-export const statuses: TaskStatus[] = ['BACKLOG', 'TODO', 'IN_PROGRESS', 'DONE', 'CANCELLED']
+import { statuses } from "../constants/constants"
 export function Dashboard() {
     const { filters } = useSearch()
     const { data: tasks, isLoading, error } = useQueryTasks(filters)
