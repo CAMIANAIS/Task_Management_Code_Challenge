@@ -1,11 +1,22 @@
+import { useState, useEffect } from "react";
 import { Avatar } from "../Avatar/Avatar";
 import { useSearch } from "../SearchContext/SearchContext";
 import styles from "./TopNavigationBar.module.css";
 import { useQueryProfile } from "../CustomHooks/useUsers";
 export function TopNavigationBar() {
+    const [inputValue, setInputValue] = useState('');
     const { filters, setFilters } = useSearch()
     const { data: profile } = useQueryProfile()
 
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setFilters(prev => ({ ...prev, searchTerm: inputValue }));
+        }, 300);
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, [inputValue, setFilters]);
 
     return (
         <div className={styles.top_navigation__bar}>
@@ -15,8 +26,8 @@ export function TopNavigationBar() {
                     type="text"
                     placeholder="Search..."
                     className={styles.search__input}
-                    value={filters.searchTerm}
-                    onChange={(e) => setFilters(prev => ({ ...prev, searchTerm: e.target.value }))}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
                 />
                 {(filters.searchTerm !== '') && <img src="/navBarIcons/delete.svg" alt="Delete" onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))} className={styles.delete__icon} />}
 
