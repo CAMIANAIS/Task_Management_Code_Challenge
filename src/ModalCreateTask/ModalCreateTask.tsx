@@ -10,7 +10,7 @@ import type { User } from '../User/User';
 import { Avatar } from '../Avatar/Avatar';
 import { statuses } from '../Dashboard/Dashboard';
 import { useCreateTask } from '../CustomHooks/useTasks';
-import { useToast } from '../NotificationContext/NotificationContext';
+import { useToast } from '../NotificationContext/useToast';
 import { getFormattedRegularDate } from '../Utils/getFormattedRegularDate';
 interface ModalCreateTaskProps {
     onClose?: () => void;
