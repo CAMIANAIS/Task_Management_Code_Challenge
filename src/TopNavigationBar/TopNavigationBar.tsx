@@ -5,7 +5,7 @@ import styles from "./TopNavigationBar.module.css";
 import { useQueryProfile } from "../CustomHooks/useUsers";
 export function TopNavigationBar() {
     const [inputValue, setInputValue] = useState('');
-    const { filters, setFilters } = useSearch()
+    const { setFilters } = useSearch()
     const { data: profile } = useQueryProfile()
 
     useEffect(() => {
@@ -29,8 +29,10 @@ export function TopNavigationBar() {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                 />
-                {(filters.searchTerm !== '') && <img src="/navBarIcons/delete.svg" alt="Delete" onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))} className={styles.delete__icon} />}
-
+                {(inputValue !== '') && <img src="/navBarIcons/delete.svg" alt="Delete" onClick={() => {
+                    setFilters(prev => ({ ...prev, searchTerm: '' }))
+                    setInputValue('')
+                }} className={styles.delete__icon} />}
                 <img src="/navBarIcons/notification.svg" alt="Notification" className={styles.notification__icon} />
 
 
