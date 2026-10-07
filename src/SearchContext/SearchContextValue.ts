@@ -1,6 +1,6 @@
 import { createContext} from "react";
 import type { TaskTag } from "../Tag/Tag";
-import type { PointEstimate } from "../Card/Card";
+import type { PointEstimate } from "../constants/constants";
 
 export type Filters = {
     searchTerm: string

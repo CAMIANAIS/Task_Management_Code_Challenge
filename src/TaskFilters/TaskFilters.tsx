@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useQueryUsers } from "../CustomHooks/useUsers";
 import type { User } from "../User/User";
 import type { TaskTag } from "../Tag/Tag";
-import type { PointEstimate } from "../Card/Card";
+import type { PointEstimate } from "../constants/constants";
 export function TaskFilters() {
     const { filters, setFilters } = useSearch()
     const [isModalOpen, setIsModalOpen] = useState<'Estimate' | 'AssigneeId' | 'Tags' | 'DueDate' | null>(null)

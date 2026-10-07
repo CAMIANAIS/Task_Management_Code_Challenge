@@ -1,6 +1,6 @@
 import style from './ModalCreateTask.module.css';
 import type { TaskStatus } from '../Task/Task';
-import { pointEstimate, type PointEstimate } from '../Card/Card';
+import { pointEstimate, type PointEstimate } from '../constants/constants';
 import { useState } from 'react';
 import type { TaskTag } from '../Tag/Tag';
 import 'react-day-picker/style.css';
@@ -8,7 +8,7 @@ import { DayPicker } from 'react-day-picker';
 import { useQueryUsers } from '../CustomHooks/useUsers';
 import type { User } from '../User/User';
 import { Avatar } from '../Avatar/Avatar';
-import { statuses } from '../Dashboard/Dashboard';
+import { statuses } from '../constants/constants';
 import { useCreateTask } from '../CustomHooks/useTasks';
 import { useToast } from '../NotificationContext/useToast';
 import { getFormattedRegularDate } from '../Utils/getFormattedRegularDate';

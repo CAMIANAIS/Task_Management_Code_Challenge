@@ -1,6 +1,6 @@
 import type { TaskTag } from "../Tag/Tag";
 import type { User } from "../User/User";
-import type { PointEstimate } from "../Card/Card"
+import type { PointEstimate } from "../constants/constants";
 export type Task = {
     id: string,
     status: TaskStatus,
