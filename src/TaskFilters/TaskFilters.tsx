@@ -1,6 +1,6 @@
 import { DayPicker } from "react-day-picker";
 import { Avatar } from "../Avatar/Avatar";
-import { useSearch } from "../SearchContext/SearchContext";
+import { useSearch } from "../SearchContext/useSearch";
 import styles from "./TaskFilters.module.css";
 import { useState } from "react";
 import { useQueryUsers } from "../CustomHooks/useUsers";
