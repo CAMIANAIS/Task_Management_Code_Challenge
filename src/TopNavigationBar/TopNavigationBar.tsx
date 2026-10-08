@@ -1,11 +1,23 @@
+import { useState, useEffect } from "react";
 import { Avatar } from "../Avatar/Avatar";
 import { useSearch } from "../SearchContext/SearchContext";
 import styles from "./TopNavigationBar.module.css";
 import { useQueryProfile } from "../CustomHooks/useUsers";
+import { useDebounce } from "../CustomHooks/useDebounce";
 export function TopNavigationBar() {
-    const { filters, setFilters } = useSearch()
-    const { data: profile } = useQueryProfile()
+    const [inputValue, setInputValue] = useState('');
+    const { setFilters } = useSearch()
+    const { data: profile } = useQueryProfile();
+    const debounceValue = useDebounce(inputValue, 300)
 
+    useEffect(() => {
+        setFilters(prev => ({ ...prev, searchTerm: debounceValue }));
+    }, [debounceValue, setFilters]);
+
+    const handleDelete = () => {
+        setFilters(prev => ({ ...prev, searchTerm: '' }));
+        setInputValue('');
+    }
 
     return (
         <div className={styles.top_navigation__bar}>
@@ -15,11 +27,10 @@ export function TopNavigationBar() {
                     type="text"
                     placeholder="Search..."
                     className={styles.search__input}
-                    value={filters.searchTerm}
-                    onChange={(e) => setFilters(prev => ({ ...prev, searchTerm: e.target.value }))}
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
                 />
-                {(filters.searchTerm !== '') && <img src="/navBarIcons/delete.svg" alt="Delete" onClick={() => setFilters(prev => ({ ...prev, searchTerm: '' }))} className={styles.delete__icon} />}
-
+                {(inputValue !== '') && <img src="/navBarIcons/delete.svg" alt="Delete" onClick={handleDelete} className={styles.delete__icon} />}
                 <img src="/navBarIcons/notification.svg" alt="Notification" className={styles.notification__icon} />
 
 
