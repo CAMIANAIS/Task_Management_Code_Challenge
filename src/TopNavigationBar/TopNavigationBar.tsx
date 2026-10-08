@@ -3,20 +3,16 @@ import { Avatar } from "../Avatar/Avatar";
 import { useSearch } from "../SearchContext/SearchContext";
 import styles from "./TopNavigationBar.module.css";
 import { useQueryProfile } from "../CustomHooks/useUsers";
+import { useDebounce } from "../CustomHooks/useDebounce";
 export function TopNavigationBar() {
     const [inputValue, setInputValue] = useState('');
     const { setFilters } = useSearch()
-    const { data: profile } = useQueryProfile()
+    const { data: profile } = useQueryProfile();
+    const debounceValue = useDebounce(inputValue, 300)
 
     useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setFilters(prev => ({ ...prev, searchTerm: inputValue }));
-        }, 300);
-
-        return () => {
-            clearTimeout(timeoutId);
-        };
-    }, [inputValue, setFilters]);
+        setFilters(prev => ({ ...prev, searchTerm: debounceValue }));
+    }, [debounceValue, setFilters]);
 
     const handleDelete = () => {
         setFilters(prev => ({ ...prev, searchTerm: '' }));
