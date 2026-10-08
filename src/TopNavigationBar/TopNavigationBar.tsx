@@ -18,6 +18,11 @@ export function TopNavigationBar() {
         };
     }, [inputValue, setFilters]);
 
+    const handleDelete = () => {
+        setFilters(prev => ({ ...prev, searchTerm: '' }));
+        setInputValue('');
+    }
+
     return (
         <div className={styles.top_navigation__bar}>
             <div className={styles.search__container}>
@@ -29,10 +34,7 @@ export function TopNavigationBar() {
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
                 />
-                {(inputValue !== '') && <img src="/navBarIcons/delete.svg" alt="Delete" onClick={() => {
-                    setFilters(prev => ({ ...prev, searchTerm: '' }))
-                    setInputValue('')
-                }} className={styles.delete__icon} />}
+                {(inputValue !== '') && <img src="/navBarIcons/delete.svg" alt="Delete" onClick={handleDelete} className={styles.delete__icon} />}
                 <img src="/navBarIcons/notification.svg" alt="Notification" className={styles.notification__icon} />
 
 
