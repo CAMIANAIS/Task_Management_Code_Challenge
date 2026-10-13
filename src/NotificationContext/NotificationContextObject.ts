@@ -1,6 +1,7 @@
 import { createContext } from "react";
 export type NotificationContextType = {
-    showToast: (msg: string, status?: string) => void
+    showToast: (message: string, status?: ToastStatus) => void
 } | null
-export type ToastNotification = { message: string; status: string } | null
+export type ToastStatus = 'success' | 'error' | 'info'
+export type ToastNotification = { message: string; status: ToastStatus } | null
 export const NotificationContext = createContext<NotificationContextType>(null)
