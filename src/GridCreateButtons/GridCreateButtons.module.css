@@ -1,33 +1,33 @@
 .ModalOptions__Container {
-    display: grid;
-    grid-template-columns: auto auto 1fr auto;
-    background: var(--color-neutral-5);
-    padding: var(--bd-regular-padding);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  background: var(--color-neutral-5);
+  padding: var(--bd-regular-padding);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .ModalOptions__ViewChange {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: inherit;
-    display: flex;
-    align-items: center;
-    margin: var(--bd-card-margin);
-    color: var(--color-neutral-3);
-    gap: var(--bd-regular-gap);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  margin: var(--bd-card-margin);
+  color: var(--color-neutral-3);
+  gap: var(--bd-regular-gap);
 }
 
 .ModalOptions__Create {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: inherit;
-    display: flex;
-    align-items: flex-end;
-    margin: var(--bd-card-margin);
-    color: var(--color-neutral-3);
-    gap: var(--bd-regular-gap);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  display: flex;
+  align-items: flex-end;
+  margin: var(--bd-card-margin);
+  color: var(--color-neutral-3);
+  gap: var(--bd-regular-gap);
 }

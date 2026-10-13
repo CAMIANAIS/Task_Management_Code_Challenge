@@ -1,72 +1,70 @@
 .container {
-    grid-row: 1 / -1;
-    grid-column: 1;
-    width: 250px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: var(--color-neutral-4);
-    display: flex;
-    padding: 0;
-    margin: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    box-sizing: border-box;
-    border-radius: var(--bd-regular-radius);
+  grid-row: 1 / -1;
+  grid-column: 1;
+  width: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--color-neutral-4);
+  display: flex;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  box-sizing: border-box;
+  border-radius: var(--bd-regular-radius);
 }
 
 .options__sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--bd-regular-gap);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: var(--color-neutral-4);
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--bd-regular-gap);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-neutral-4);
+  width: 100%;
 }
 
-
-
-.options__sidebar>li:last-child {
-    border-bottom: none;
+.options__sidebar > li:last-child {
+  border-bottom: none;
 }
 
 .logo {
-    height: 60px;
-    padding: var(--bd-columns-width-spacing);
-    object-fit: contain;
+  height: 60px;
+  padding: var(--bd-columns-width-spacing);
+  object-fit: contain;
 }
 
 @media (max-width: 640px) {
-    .container {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        grid-row: auto;
-        grid-column: auto;
-        height: auto;
-        border-radius: 0;
-        z-index: 999;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
-        padding: var(--bd-small-padding);
-        overflow: visible;
-    }
+  .container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    grid-row: auto;
+    grid-column: auto;
+    height: auto;
+    border-radius: 0;
+    z-index: 999;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: var(--bd-small-padding);
+    overflow: visible;
+  }
 
-    .logo {
-        display: none;
-    }
+  .logo {
+    display: none;
+  }
 
-    .options__sidebar {
-        flex-direction: row;
-        width: 100%;
-        gap: var(--bd-small-gap);
-        padding: 0;
-        align-items: center;
-        justify-content: space-around;
-    }
+  .options__sidebar {
+    flex-direction: row;
+    width: 100%;
+    gap: var(--bd-small-gap);
+    padding: 0;
+    align-items: center;
+    justify-content: space-around;
+  }
 }

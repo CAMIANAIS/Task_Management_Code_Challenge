@@ -6,16 +6,17 @@ import { NotFound } from './NotFound/NotFound'
 import { Layout } from './Layout/Layout'
 import { Settings } from './Settings/Settings'
 function App() {
-
   return (
     <div>
-
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Dashboard />} />
           <Route path="/tasks" element={<Dashboard />} />
           <Route path="/calendar" element={<Placeholder title="Calendar" />} />
-          <Route path="/time-management" element={<Placeholder title="Time Management" />} />
+          <Route
+            path="/time-management"
+            element={<Placeholder title="Time Management" />}
+          />
           <Route path="/projects" element={<Placeholder title="Projects" />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/reports" element={<Placeholder title="Reports" />} />
