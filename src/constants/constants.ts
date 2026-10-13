@@ -1,5 +1,5 @@
 import type { TaskStatus } from "../Task/Task"
-export type PointEstimate = 'ZERO' | 'ONE' | 'TWO' | 'FOUR' | 'EIGHT'
+import type { PointEstimate } from "../Task/Task"
 export const pointEstimate: Record<PointEstimate, string> = {
     EIGHT: '8 Pts',
     FOUR: '4 Pts',
@@ -7,7 +7,6 @@ export const pointEstimate: Record<PointEstimate, string> = {
     TWO: '2 Pts',
     ZERO: '0 Pts',
 }
-
 export const statuses: TaskStatus[] = ['BACKLOG', 'TODO', 'IN_PROGRESS', 'DONE', 'CANCELLED']
 
 export const status: Record<TaskStatus, string> = {

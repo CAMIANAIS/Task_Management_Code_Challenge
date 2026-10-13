@@ -1,6 +1,7 @@
 import style from './ModalCreateTask.module.css';
 import type { TaskStatus } from '../Task/Task';
-import { pointEstimate, type PointEstimate } from '../constants/constants';
+import { pointEstimate } from '../constants/constants'
+import type { PointEstimate } from '../Task/Task'
 import { useState } from 'react';
 import type { TaskTag } from '../Tag/Tag';
 import 'react-day-picker/style.css';

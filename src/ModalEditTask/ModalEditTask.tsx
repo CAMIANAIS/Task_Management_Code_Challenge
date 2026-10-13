@@ -1,6 +1,7 @@
 import style from './ModalEditTask.module.css';
 import type { Task, TaskStatus } from '../Task/Task';
-import { pointEstimate, type PointEstimate } from '../constants/constants';
+import { pointEstimate } from '../constants/constants'
+import type { PointEstimate } from '../Task/Task'
 import { getFormattedDate } from '../Utils/getFormattedDate';
 import { useState } from 'react';
 import type { TaskTag } from '../Tag/Tag';

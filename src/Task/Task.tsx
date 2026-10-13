@@ -1,6 +1,8 @@
 import type { TaskTag } from "../Tag/Tag";
 import type { User } from "../User/User";
-import type { PointEstimate } from "../constants/constants";
+
+
+export type PointEstimate = 'ZERO' | 'ONE' | 'TWO' | 'FOUR' | 'EIGHT'
 export type Task = {
     id: string,
     status: TaskStatus,
@@ -13,6 +15,7 @@ export type Task = {
     position: number
 }
 export type TaskStatus = 'BACKLOG' | 'TODO' | 'IN_PROGRESS' | 'DONE' | 'CANCELLED';
+
 
 
 // Mock data
