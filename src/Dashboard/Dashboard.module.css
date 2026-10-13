@@ -1,14 +1,14 @@
 .container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    column-gap: var(--bd-columns-width-spacing);
-    padding: var(--bd-columns-width-spacing);
-    overflow-x: auto;
-    overflow-y: hidden;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  column-gap: var(--bd-columns-width-spacing);
+  padding: var(--bd-columns-width-spacing);
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .listContainer {
-    display: grid;
-    overflow-x: auto;
-    padding-left: var(--bd-regular-padding);
+  display: grid;
+  overflow-x: auto;
+  padding-left: var(--bd-regular-padding);
 }

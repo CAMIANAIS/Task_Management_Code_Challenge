@@ -1,12 +1,12 @@
 .task__item {
-    display: flex;
-    flex-direction: row;
-    gap: var(--bd-regular-width-spacing);
-    align-items: center;
-    flex-wrap: wrap;
-    /* border-style: solid;
+  display: flex;
+  flex-direction: row;
+  gap: var(--bd-regular-width-spacing);
+  align-items: center;
+  flex-wrap: wrap;
+  /* border-style: solid;
     border-width: 1px; */
-    border-radius: 4px;
-    white-space: nowrap;
-    padding: var(--bd-small-padding);
+  border-radius: 4px;
+  white-space: nowrap;
+  padding: var(--bd-small-padding);
 }

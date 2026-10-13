@@ -1,37 +1,36 @@
 .ModalOptions__Container {
-    display: flex;
-    flex-direction: column;
-    background: var(--color-neutral-3);
-    border-radius: var(--bd-card-border-radius);
-    padding: var(--bd-regular-padding);
-    border-color: var(--color-neutral-1);
-    border-style: solid;
-    border-width: var(--bd-card-border-width);
-    position: absolute;
-    z-index: 1002;
-    right: var(--bd-columns-width-spacing);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-neutral-3);
+  border-radius: var(--bd-card-border-radius);
+  padding: var(--bd-regular-padding);
+  border-color: var(--color-neutral-1);
+  border-style: solid;
+  border-width: var(--bd-card-border-width);
+  position: absolute;
+  z-index: 1002;
+  right: var(--bd-columns-width-spacing);
 }
-
 
 .ModalOptions__Edit,
 .ModalOptions__Delete {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: inherit;
-    display: flex;
-    align-items: center;
-    margin: var(--bd-card-margin);
-    color: var(--color-neutral-1);
-    gap: var(--bd-regular-gap);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  margin: var(--bd-card-margin);
+  color: var(--color-neutral-1);
+  gap: var(--bd-regular-gap);
 }
 
 .DropdownBackdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1001;
-    cursor: default;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  cursor: default;
 }
