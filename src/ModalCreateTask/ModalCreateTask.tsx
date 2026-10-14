@@ -1,6 +1,6 @@
 import style from './ModalCreateTask.module.css';
 import type { TaskStatus } from '../Task/Task';
-import { pointEstimate ,statuses} from '../constants'
+import { pointEstimate ,statuses } from '../constants'
 import type { PointEstimate } from '../Task/Task'
 import { useState } from 'react';
 import type { TaskTag } from '../Tag/Tag';
