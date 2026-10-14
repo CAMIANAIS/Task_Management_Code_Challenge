@@ -10,7 +10,7 @@ import { ModalEditTaskOptions } from '../ModalEditTask/ModalEditTask'
 import { ModalConfirmationOptions } from '../ModalConfirmation/ModalConfirmation'
 import { useToast} from '../NotificationContext/useToast'
 import { getDueDateStatus } from '../Utils/getDueDateStatus'
-import { pointEstimate } from '../constants/constants'
+import { pointEstimate } from '../constants'
 import type {PointEstimate } from '../Task/Task'
 type CardProps = {
     task: Task,

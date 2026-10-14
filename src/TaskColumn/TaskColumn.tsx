@@ -2,7 +2,7 @@ import type { Task } from '../Task/Task'
 import type { TaskStatus } from '../Task/Task'
 import { Card } from '../Card/Card'
 import styles from './TaskColumn.module.css'
-import { status } from '../constants/constants'
+import { status } from '../constants'
 type TaskColumnProps = {
     state: TaskStatus,
     tasks: Task[],

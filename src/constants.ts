@@ -1,5 +1,5 @@
-import type { TaskStatus } from "../Task/Task"
-import type { PointEstimate } from "../Task/Task"
+import type { TaskStatus } from "./Task/Task"
+import type { PointEstimate } from "./Task/Task"
 export const pointEstimate: Record<PointEstimate, string> = {
     EIGHT: '8 Pts',
     FOUR: '4 Pts',
