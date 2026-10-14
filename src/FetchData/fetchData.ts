@@ -1,7 +1,7 @@
 const token = import.meta.env.VITE_API_TOKEN
 const url = 'https://syn-api-production-e95c.up.railway.app/graphql'
 
-export function fetchData(query: string, variables: Record<string, any> = {}) {
+export function fetchData(query: string, variables: Record<string, unknown> = {}) {
     const message = {
         method: 'POST',
         headers: {
@@ -15,7 +15,7 @@ export function fetchData(query: string, variables: Record<string, any> = {}) {
         }
         return response.json().then((data) => {
             if (data.errors) {
-                throw new Error(`GraphQL error! ${data.errors.map((error: any) => error.message).join(', ')}`);
+                throw new Error(`GraphQL error! ${data.errors.map((error: {message: string}) => error.message).join(', ')}`);
             }
             return data.data;
         })

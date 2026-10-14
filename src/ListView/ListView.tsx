@@ -1,8 +1,7 @@
 import type { Task, TaskStatus } from '../Task/Task'
 import style from './ListView.module.css'
-import { statuses } from '../Dashboard/Dashboard'
+import { statuses, status as StatusLabels } from '../constants'
 import { TaskListRow } from '../TaskListRow/TaskListRow'
-import { status as StatusLabels } from '../TaskColumn/TaskColumn'
 type ListViewProps = {
     tasks: Task[]
 }
