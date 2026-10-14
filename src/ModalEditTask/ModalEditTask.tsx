@@ -1,6 +1,6 @@
 import style from './ModalEditTask.module.css';
 import type { Task, TaskStatus } from '../Task/Task';
-import { pointEstimate } from '../constants/constants'
+import { pointEstimate, statuses } from '../constants/constants'
 import type { PointEstimate } from '../Task/Task'
 import { getFormattedDate } from '../Utils/getFormattedDate';
 import { useState } from 'react';
@@ -10,7 +10,6 @@ import { DayPicker } from 'react-day-picker';
 import { useQueryUsers } from '../CustomHooks/useUsers';
 import type { User } from '../User/User';
 import { Avatar } from '../Avatar/Avatar';
-import { statuses } from '../constants/constants';
 interface ModalInfoOptionsProps {
     onEstimate: (estimate: PointEstimate) => void;
     onAssignee: (fullName: string) => void;
